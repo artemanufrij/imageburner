@@ -96,8 +96,32 @@ namespace Imageburner {
         Imageburner.DiskBurner burner;
 
         construct {
-            program_name = "Imageburner";
+            program_name = "Image Burner";
             exec_name = "imageburner";
+
+            application_id = "com.github.artemanufrij.imageburner";
+            app_launcher = application_id + ".desktop";
+            app_years = "2017";
+
+            app_icon = "drive-removable-media-usb";
+            main_url = "https://github.com/artemanufrij/imageburner";
+            bug_url = "https://github.com/artemanufrij/imageburner/issues";
+            help_url = "https://github.com/artemanufrij/imageburner/issues";
+            //translate_url = "https://l10n.elementary.io/projects/desktop/granite";
+
+            about_documenters = {
+                "Artem Anufrij <artem.anufrij@live.de>",
+            };
+            about_artists = {
+                "Artem Anufrij <artem.anufrij@live.de>"
+            };
+            about_authors = {
+                "Artem Anufrij <artem.anufrij@live.de>"
+            };
+
+            about_comments = "A simple image burner";
+
+
         }
 
         protected override void activate () {
