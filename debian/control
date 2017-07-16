@@ -1,0 +1,16 @@
+Source: com.github.artemanufrij.imageburner
+Section: x11
+Priority: optional
+Maintainer: Artem Anufrij <artem.anufrij@live.de>
+Build-Depends: cmake (>= 2.8),
+               cmake-elementary,
+               debhelper (>= 9),
+               libgranite-dev,
+               valac (>= 0.26)
+Standards-Version: 3.9.3
+
+Package: com.github.artemanufrij.imageburner
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Simple image burner
+ Simple image burner, written especially for elementary OS

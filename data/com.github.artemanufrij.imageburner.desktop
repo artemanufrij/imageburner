@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Name=Image Burner
+Comment=A simple image burner
+GenericName=Image Burner
+Icon=drive-removable-media-usb
+Exec=com.github.artemanufrij.imageburner %U
+Terminal=false
+Categories=System;GNOME;GTK;
+X-GNOME-Gettext-Domain=imageburner
+Actions=AboutDialog;
+Keywords=Image;Burn;Flash;USB
+
+[Desktop Action AboutDialog]
+Exec=com.github.artemanufrij.imageburner --about
+Name=About Image Burner
