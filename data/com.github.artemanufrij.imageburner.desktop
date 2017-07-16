@@ -9,7 +9,7 @@ Terminal=false
 Categories=System;GNOME;GTK;
 X-GNOME-Gettext-Domain=imageburner
 Actions=AboutDialog;
-Keywords=Image;Burn;Flash;USB
+Keywords=Image;Burn;Flash;USB;
 
 [Desktop Action AboutDialog]
 Exec=com.github.artemanufrij.imageburner --about
