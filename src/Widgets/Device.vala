@@ -86,7 +86,7 @@ namespace Imageburner {
 
                 if (mount != null) {
                     debug ("umount %s", mount.get_name ());
-                    mount.unmount_with_operation (GLib.MountUnmountFlags.FORCE, null);
+                    mount.unmount_with_operation.begin (GLib.MountUnmountFlags.FORCE, null);
                 }
             }
         }

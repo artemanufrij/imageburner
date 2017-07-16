@@ -40,95 +40,91 @@ namespace Imageburner {
 
 		private DiskBurner () {
             this.is_running = false;
-            this.begin.connect (() => { this.is_running = true ;});
-            this.end.connect (() => { this.is_running = false; });
+            this.begin.connect (() => {
+                this.is_running = true;
+                debug ("begin");
+            });
+            this.finished.connect (() => {
+                this.is_running = false;
+                debug ("end");
+            });
         }
 
         public bool is_running {get;set;}
 
         public signal void begin ();
-        public signal void end ();
+        public signal void finished ();
         public signal void progress (double percent);
 
         File current_image;
+        uint64 image_size;
         int last_progress = 0;
         Pid child_pid;
 
-        public async void flash_image (File image, Device dev) {
+        public async void flash_image (File image, Drive drive) {
             current_image = image;
-            dev.umount_all_volumes ();
+
+            try {
+                image_size = current_image.query_info ("standard::size", 0).get_size ();
+            } catch (GLib.Error e) {
+                stdout.printf ("GLibError: %s\n", e.message);
+                image_size = 0;
+            }
 
             string if_arg = "if=" + current_image.get_path ();
-            string of_arg = "of=" + dev.get_unix_device ();
+            string of_arg = "of=" + drive.get_identifier ("unix-device");
 
             debug (if_arg);
             debug (of_arg);
 
-            string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=4M", "conv=sync", "status=progress"};
+            string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=1M", "conv=sync", "status=progress"};
 
-		    int standard_output;
-		    int standard_error;
-
+            int standard_error = 0;
             try {
-		        Process.spawn_async_with_pipes ("/",
-			        spawn_args,
-			        null,
-			        SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
-			        null,
-			        out child_pid,
-			        null,
-			        out standard_output,
-			        out standard_error);
+	            Process.spawn_async_with_pipes ("/",
+		            spawn_args,
+		            null,
+		            SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+		            null,
+		            out child_pid,
+		            null,
+		            null,
+		            out standard_error);
             } catch (GLib.SpawnError e) {
                 stdout.printf ("GLibSpawnError: %s\n", e.message);
             }
 
-		    IOChannel output = new IOChannel.unix_new (standard_output);
-		    output.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
-			    return process_line (channel, condition, "stdout");
-		    });
+            IOChannel error = new IOChannel.unix_new (standard_error);
+	        error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+                if (condition == IOCondition.HUP)
+                    return false;
 
-		    IOChannel error = new IOChannel.unix_new (standard_error);
-		    error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
-			    return process_line (channel, condition, "stderr");
-		    });
-
-            ChildWatch.add (child_pid, (pid, status) => {
-			    Process.close_pid (pid);
-                end ();
-		    });
-
-            begin ();
-        }
-
-        private bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
-	        if (condition == IOCondition.HUP) {
-		        return false;
-	        }
-
-	        try {
-		        string line;
-		        channel.read_line (out line, null, null);
-
-                double current_size = get_current_size (line);
-                int percent = (int)(current_size * 100 / current_image.query_info ("standard::size", 0).get_size ());
-                if (percent != last_progress) {
-                    last_progress = percent;
-                    progress (((double)percent)/100);
+                try {
+                    string line;
+                    channel.read_line (out line, null, null);
+                    double current_size = get_current_size (line);
+                    int percent = (int)(current_size * 100 / image_size);
+                    if (percent != last_progress) {
+                        last_progress = percent;
+                        progress (((double)percent)/100);
+                    }
+                } catch (IOChannelError e) {
+                    stdout.printf ("IOChannelError: %s\n", e.message);
+                    return false;
+                } catch (ConvertError e) {
+                    stdout.printf ("ConvertError: %s\n", e.message);
+                    return false;
                 }
 
-	        } catch (IOChannelError e) {
-		        stdout.printf ("%s: IOChannelError: %s\n", stream_name, e.message);
-		        return false;
-	        } catch (ConvertError e) {
-		        stdout.printf ("%s: ConvertError: %s\n", stream_name, e.message);
-		        return false;
-            } catch  (GLib.Error e) {
-                stdout.printf ("GLibError: %s\n", e.message);
-		        return false;
-            }
+                return true;
+	        });
 
-	        return true;
+            ChildWatch.add (child_pid, (pid, status) => {
+		        Process.close_pid (pid);
+                finished ();
+	        });
+
+            begin ();
         }
 
         private double get_current_size (string line) {

@@ -46,6 +46,9 @@ namespace Imageburner {
         Gtk.FlowBox device_list;
         Gtk.Popover device_popover;
         Gtk.Button select_device;
+        Gtk.Label no_device_message;
+
+        Granite.Widgets.Toast app_notification;
 
         Gtk.Button process_start;
         Gtk.ProgressBar bar;
@@ -75,7 +78,6 @@ namespace Imageburner {
                 _selected_device = value;
                 this.process_start.sensitive = selected_device != null && selected_image != null;
 
-                this.select_device.label = _("Device");
                 if (selected_device != null) {
                     this.select_device.label = selected_device.drive.get_name ();
                     if (selected_device.is_card) {
@@ -83,6 +85,9 @@ namespace Imageburner {
                     } else {
                         this.device_logo.set_from_gicon (selected_device.drive.get_icon (), Gtk.IconSize.DIALOG);
                     }
+                } else {
+                    this.select_device.label = _("Device");
+                    this.device_logo.set_from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
                 }
             }
         }
@@ -113,19 +118,22 @@ namespace Imageburner {
                 open_image.sensitive = false;
                 select_device.sensitive = false;
                 process_start.sensitive = false;
-
             });
-            burner.end.connect (() => {
+            burner.finished.connect (() => {
                 bar.visible = false;
                 open_image.sensitive = true;
                 select_device.sensitive = true;
                 process_start.sensitive = true;
+                app_notification.title = _("%s was flashed on %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
+                app_notification.send_notification ();
             });
             burner.progress.connect ((val) => {
                 debug ("percent: %f", val);
                 bar.set_fraction (val);
                 bar.set_text ("%d %".printf ((int)(val * 100)));
-                bar.show_all ();
+                while (Gtk.events_pending ()) {
+                    Gtk.main_iteration ();
+                }
             });
 
             this.build_ui ();
@@ -148,6 +156,11 @@ namespace Imageburner {
             content.column_spacing = 32;
             content.row_spacing = 24;
 
+            app_notification = new Granite.Widgets.Toast ("");
+            var overlay = new Gtk.Overlay ();
+            overlay.add (content);
+            overlay.add_overlay (app_notification);
+
             build_image_area ();
 
             build_device_area ();
@@ -160,6 +173,7 @@ namespace Imageburner {
             content.attach (bar, 0, 1, 3, 1);
 
             mainwindow.add (content);
+            mainwindow.add (overlay);
             mainwindow.show_all ();
 
             bar.visible = false;
@@ -168,7 +182,7 @@ namespace Imageburner {
         private void build_image_area () {
             var grid = new Gtk.Grid ();
             grid.row_spacing = 24;
-            grid.width_request = 200;
+            grid.width_request = 220;
             var image_logo = new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.DIALOG);
             grid.attach (image_logo, 0, 0, 1, 1);
 
@@ -183,9 +197,13 @@ namespace Imageburner {
         private void build_device_area () {
             var grid = new Gtk.Grid ();
             grid.row_spacing = 24;
-            grid.width_request = 200;
+            grid.width_request = 220;
+
+            var device_grid = new Gtk.Grid ();
             device_list = new Gtk.FlowBox ();
             device_list.child_activated.connect (select_drive);
+
+            device_grid.add (device_list);
 
             device_logo = new Gtk.Image.from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
             grid.attach (device_logo, 0, 0, 1, 1);
@@ -197,13 +215,25 @@ namespace Imageburner {
                 device_popover.visible = !device_popover.visible;
             });
 
+            no_device_message = new Gtk.Label (_("No removable devices found"));
+            no_device_message.get_style_context ().add_class("h3");
+            no_device_message.margin = 6;
+
+            no_device_message.expand = true;
+            device_grid.add (no_device_message);
+
             device_popover = new Gtk.Popover (select_device);
             device_popover.position = Gtk.PositionType.TOP;
-            device_popover.add (device_list);
+            device_popover.add (device_grid);
+
             device_popover.show.connect (() => {
-                device_list.select_child (selected_device);
+                if (selected_device != null) {
+                    device_list.select_child (selected_device);
+                }
                 select_device.grab_focus ();
             });
+
+            device_grid.show_all ();
             grid.attach (select_device, 0, 1, 1, 1);
 
             content.attach (grid, 1, 0, 1, 1);
@@ -212,7 +242,7 @@ namespace Imageburner {
         private void build_flash_area () {
             var grid = new Gtk.Grid ();
             grid.row_spacing = 24;
-            grid.width_request = 200;
+            grid.width_request = 220;
             var start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
             grid.attach (start_logo, 0, 0, 1, 1);
 
@@ -236,7 +266,7 @@ namespace Imageburner {
 
             var image_filter = new Gtk.FileFilter ();
             image_filter.set_filter_name (_("Image files"));
-            image_filter.add_mime_type ("application/x-iso9660-image");
+            image_filter.add_mime_type ("application/x-raw-disk-image");
 
             file.add_filter (image_filter);
 
@@ -255,7 +285,8 @@ namespace Imageburner {
 
         private void flash_image () {
             if (!burner.is_running) {
-                burner.flash_image.begin (selected_image, selected_device);
+                selected_device.umount_all_volumes ();
+                burner.flash_image.begin(selected_image, selected_device.drive);
             }
         }
 
@@ -265,6 +296,7 @@ namespace Imageburner {
             this.selected_device = item;
             this.device_list.add (item);
             this.device_list.show_all ();
+            this.no_device_message.hide ();
         }
 
         private void device_removed (GLib.Drive drive) {
@@ -275,8 +307,12 @@ namespace Imageburner {
                 }
             }
             if (selected_device.drive == drive) {
-                if (this.device_list.get_children ().length () > 0)
-                selected_device = this.device_list.get_children ().last ().data as Device;
+                if (this.device_list.get_children ().length () > 0) {
+                    selected_device = this.device_list.get_children ().last ().data as Device;
+                } else {
+                    selected_device = null;
+                    this.no_device_message.show ();
+                }
             }
         }
     }
