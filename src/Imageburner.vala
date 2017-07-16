@@ -53,8 +53,10 @@ namespace Imageburner {
 
         Granite.Widgets.Toast app_notification;
 
-        Gtk.Button process_start;
+        Gtk.Button flash_start;
         Gtk.Grid flash_container;
+        Gtk.Label flash_label;
+
         Gtk.ProgressBar bar;
 
         File _selected_image = null;
@@ -72,6 +74,8 @@ namespace Imageburner {
                     this.set_image_label ("");
                     this.open_image.label = _("Open");
                 }
+
+                set_flash_label ();
             }
         }
 
@@ -98,6 +102,8 @@ namespace Imageburner {
                     this.select_device.label = _("Device");
                     this.device_logo.set_from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
                 }
+
+                set_flash_label ();
             }
         }
 
@@ -221,6 +227,7 @@ namespace Imageburner {
 
             var title = new Gtk.Label (_("Image"));
             title.get_style_context ().add_class("h2");
+            title.hexpand = true;
             image_container.attach (title, 0, 0, 1, 1);
 
             var image_logo = new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.DIALOG);
@@ -229,14 +236,12 @@ namespace Imageburner {
             open_image = new Gtk.Button.with_label (_("Open"));
             open_image.clicked.connect (select_image);
             open_image.halign = Gtk.Align.CENTER;
-            image_container.attach (open_image, 0, 2, 1, 1);
+            image_container.attach (open_image, 0, 3, 1, 1);
 
             image_name = new Gtk.Label ("");
             image_name.use_markup = true;
-            image_name.ellipsize = Pango.EllipsizeMode.END;
-            image_name.expand = true;
             set_image_label ("");
-            image_container.attach (image_name, 0, 3, 1, 1);
+            image_container.attach (image_name, 0, 2, 1, 1);
 
             content.attach (image_container, 0, 0, 1, 1);
         }
@@ -249,6 +254,7 @@ namespace Imageburner {
 
             var title = new Gtk.Label (_("Device"));
             title.get_style_context ().add_class("h2");
+            title.hexpand = true;
             device_container.attach (title, 0, 0, 1, 1);
 
             var device_grid = new Gtk.Grid ();
@@ -265,12 +271,11 @@ namespace Imageburner {
             select_device.clicked.connect (() => {
                 device_popover.visible = !device_popover.visible;
             });
-            device_container.attach (select_device, 0, 2, 1, 1);
+            device_container.attach (select_device, 0, 3, 1, 1);
 
             device_name = new Gtk.Label ("");
             device_name.use_markup = true;
-            device_name.expand = true;
-            device_container.attach (device_name, 0, 3, 1, 1);
+            device_container.attach (device_name, 0, 2, 1, 1);
 
             device_popover = new Gtk.Popover (select_device);
             device_popover.position = Gtk.PositionType.TOP;
@@ -285,6 +290,8 @@ namespace Imageburner {
 
             device_grid.show_all ();
             content.attach (device_container, 1, 0, 1, 1);
+
+            set_flash_label ();
         }
 
         private void build_flash_area () {
@@ -294,17 +301,21 @@ namespace Imageburner {
 
             var title = new Gtk.Label (_("Flash"));
             title.get_style_context ().add_class("h2");
+            title.hexpand = true;
             flash_container.attach (title, 0, 0, 1, 1);
 
             var start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
             flash_container.attach (start_logo, 0, 1, 1, 1);
 
-            process_start = new Gtk.Button.with_label (_("Start"));
-            process_start.get_style_context ().add_class("h2");
-            process_start.get_style_context ().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-            process_start.expand = true;
-            process_start.clicked.connect (flash_image);
-            flash_container.attach (process_start, 0, 2, 1, 2);
+            flash_start = new Gtk.Button.with_label (_("Write Image"));
+            flash_start.get_style_context ().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            flash_start.halign = Gtk.Align.CENTER;
+            flash_start.clicked.connect (flash_image);
+            flash_container.attach (flash_start, 0, 3, 1, 1);
+
+            flash_label = new Gtk.Label ("");
+            flash_label.use_markup = true;
+            flash_container.attach (flash_label, 0, 2, 1, 1);
 
             content.attach (flash_container, 2, 0, 1, 1);
         }
@@ -383,6 +394,16 @@ namespace Imageburner {
                 this.device_name.label = text;
             } else {
                 this.device_name.label = ("<i>%s</i>").printf(_("No removable devices found…"));
+            }
+        }
+
+        private void set_flash_label () {
+            if (selected_image == null) {
+                this.flash_label.label = ("<i>%s</i>").printf(_("No image file choosed…"));
+            } else if (selected_device == null) {
+                this.flash_label.label = ("<i>%s</i>").printf(_("No device choosed…"));
+            } else {
+                this.flash_label.label = _("Ready!");
             }
         }
     }
