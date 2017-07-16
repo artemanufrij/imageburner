@@ -41,16 +41,20 @@ namespace Imageburner {
         public Gtk.Window mainwindow;
         Gtk.Grid content;
         Gtk.Button open_image;
+        Gtk.Label image_name;
+        Gtk.Grid image_container;
 
         Gtk.Image device_logo;
         Gtk.FlowBox device_list;
         Gtk.Popover device_popover;
         Gtk.Button select_device;
-        Gtk.Label no_device_message;
+        Gtk.Label device_name;
+        Gtk.Grid device_container;
 
         Granite.Widgets.Toast app_notification;
 
         Gtk.Button process_start;
+        Gtk.Grid flash_container;
         Gtk.ProgressBar bar;
 
         File _selected_image = null;
@@ -58,12 +62,15 @@ namespace Imageburner {
             get { return _selected_image; }
             set {
                 _selected_image = value;
-                this.select_device.sensitive = selected_image != null;
-                this.process_start.sensitive = selected_device != null && selected_image != null;
+                this.device_container.sensitive = selected_image != null && has_removable_devices;
+                this.flash_container.sensitive = selected_device != null && selected_image != null;
 
-                this.open_image.label = _("Image");
                 if (selected_image != null) {
-                    this.open_image.label = selected_image.get_basename ();
+                    this.set_image_label (selected_image.get_basename ());
+                    this.open_image.label = _("Change");
+                } else {
+                    this.set_image_label ("");
+                    this.open_image.label = _("Open");
                 }
             }
         }
@@ -76,19 +83,27 @@ namespace Imageburner {
                     return;
                 }
                 _selected_device = value;
-                this.process_start.sensitive = selected_device != null && selected_image != null;
+                this.flash_container.sensitive = selected_device != null && selected_image != null;
 
                 if (selected_device != null) {
-                    this.select_device.label = selected_device.drive.get_name ();
+                    this.set_device_label (selected_device.drive.get_name ());
+                    this.select_device.label = _("Change");
                     if (selected_device.is_card) {
                         this.device_logo.set_from_icon_name ("media-flash", Gtk.IconSize.DIALOG);
                     } else {
                         this.device_logo.set_from_gicon (selected_device.drive.get_icon (), Gtk.IconSize.DIALOG);
                     }
                 } else {
+                    this.set_device_label ("");
                     this.select_device.label = _("Device");
                     this.device_logo.set_from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
                 }
+            }
+        }
+
+        bool has_removable_devices {
+            get {
+                return this.device_list.get_children ().length () > 0;
             }
         }
 
@@ -107,7 +122,6 @@ namespace Imageburner {
             main_url = "https://github.com/artemanufrij/imageburner";
             bug_url = "https://github.com/artemanufrij/imageburner/issues";
             help_url = "https://github.com/artemanufrij/imageburner/issues";
-            //translate_url = "https://l10n.elementary.io/projects/desktop/granite";
 
             about_documenters = {
                 "Artem Anufrij <artem.anufrij@live.de>",
@@ -120,8 +134,6 @@ namespace Imageburner {
             };
 
             about_comments = "A simple image burner";
-
-
         }
 
         protected override void activate () {
@@ -139,15 +151,15 @@ namespace Imageburner {
                 bar.set_fraction (0);
                 bar.show_all ();
 
-                open_image.sensitive = false;
-                select_device.sensitive = false;
-                process_start.sensitive = false;
+                this.image_container.sensitive = false;
+                this.device_container.sensitive = false;
+                this.flash_container.sensitive = false;
             });
             burner.finished.connect (() => {
                 bar.visible = false;
-                open_image.sensitive = true;
-                select_device.sensitive = true;
-                process_start.sensitive = true;
+                this.image_container.sensitive = true;
+                this.device_container.sensitive = true;
+                this.flash_container.sensitive = true;
                 app_notification.title = _("%s was flashed on %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
                 app_notification.send_notification ();
             });
@@ -168,15 +180,14 @@ namespace Imageburner {
 
         private void build_ui () {
             mainwindow = new Gtk.Window ();
-            mainwindow.title = _("Imageburner");
-            mainwindow.set_resizable (false);
+            mainwindow.title = _("Image Burner");
+            mainwindow.resizable = false;
             mainwindow.destroy.connect (() => {
                 Gtk.main_quit ();
             });
 
             content = new Gtk.Grid ();
-            content.margin = 48;
-            content.hexpand = true;
+            content.margin = 32;
             content.column_spacing = 32;
             content.row_spacing = 24;
 
@@ -194,7 +205,7 @@ namespace Imageburner {
             // PROGRESS BAR
             bar = new Gtk.ProgressBar ();
             bar.set_show_text (true);
-            content.attach (bar, 0, 1, 3, 1);
+            content.attach (bar, 0, 2, 3, 1);
 
             mainwindow.add (content);
             mainwindow.add (overlay);
@@ -204,24 +215,41 @@ namespace Imageburner {
         }
 
         private void build_image_area () {
-            var grid = new Gtk.Grid ();
-            grid.row_spacing = 24;
-            grid.width_request = 220;
+            image_container = new Gtk.Grid ();
+            image_container.row_spacing = 24;
+            image_container.width_request = 180;
+
+            var title = new Gtk.Label (_("Image"));
+            title.get_style_context ().add_class("h2");
+            image_container.attach (title, 0, 0, 1, 1);
+
             var image_logo = new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.DIALOG);
-            grid.attach (image_logo, 0, 0, 1, 1);
+            image_container.attach (image_logo, 0, 1, 1, 1);
 
-            open_image = new Gtk.Button.with_label (_("Image"));
-            open_image.expand = true;
+            open_image = new Gtk.Button.with_label (_("Open"));
             open_image.clicked.connect (select_image);
-            grid.attach (open_image, 0, 1, 1, 1);
+            open_image.halign = Gtk.Align.CENTER;
+            image_container.attach (open_image, 0, 2, 1, 1);
 
-            content.attach (grid, 0, 0, 1, 1);
+            image_name = new Gtk.Label ("");
+            image_name.use_markup = true;
+            image_name.ellipsize = Pango.EllipsizeMode.END;
+            image_name.expand = true;
+            set_image_label ("");
+            image_container.attach (image_name, 0, 3, 1, 1);
+
+            content.attach (image_container, 0, 0, 1, 1);
         }
 
         private void build_device_area () {
-            var grid = new Gtk.Grid ();
-            grid.row_spacing = 24;
-            grid.width_request = 220;
+            device_container = new Gtk.Grid ();
+            device_container.sensitive = false;
+            device_container.row_spacing = 24;
+            device_container.width_request = 180;
+
+            var title = new Gtk.Label (_("Device"));
+            title.get_style_context ().add_class("h2");
+            device_container.attach (title, 0, 0, 1, 1);
 
             var device_grid = new Gtk.Grid ();
             device_list = new Gtk.FlowBox ();
@@ -230,21 +258,19 @@ namespace Imageburner {
             device_grid.add (device_list);
 
             device_logo = new Gtk.Image.from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
-            grid.attach (device_logo, 0, 0, 1, 1);
+            device_container.attach (device_logo, 0, 1, 1, 1);
 
-            select_device = new Gtk.Button.with_label (_("Device"));
-            select_device.expand = true;
-            select_device.sensitive = false;
+            select_device = new Gtk.Button.with_label (_("Choose"));
+            select_device.halign = Gtk.Align.CENTER;
             select_device.clicked.connect (() => {
                 device_popover.visible = !device_popover.visible;
             });
+            device_container.attach (select_device, 0, 2, 1, 1);
 
-            no_device_message = new Gtk.Label (_("No removable devices found"));
-            no_device_message.get_style_context ().add_class("h3");
-            no_device_message.margin = 6;
-
-            no_device_message.expand = true;
-            device_grid.add (no_device_message);
+            device_name = new Gtk.Label ("");
+            device_name.use_markup = true;
+            device_name.expand = true;
+            device_container.attach (device_name, 0, 3, 1, 1);
 
             device_popover = new Gtk.Popover (select_device);
             device_popover.position = Gtk.PositionType.TOP;
@@ -258,27 +284,29 @@ namespace Imageburner {
             });
 
             device_grid.show_all ();
-            grid.attach (select_device, 0, 1, 1, 1);
-
-            content.attach (grid, 1, 0, 1, 1);
+            content.attach (device_container, 1, 0, 1, 1);
         }
 
         private void build_flash_area () {
-            var grid = new Gtk.Grid ();
-            grid.row_spacing = 24;
-            grid.width_request = 220;
-            var start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
-            grid.attach (start_logo, 0, 0, 1, 1);
+            flash_container = new Gtk.Grid ();
+            flash_container.row_spacing = 24;
+            flash_container.width_request = 180;
 
-            process_start = new Gtk.Button.with_label (_("Flash"));
+            var title = new Gtk.Label (_("Flash"));
+            title.get_style_context ().add_class("h2");
+            flash_container.attach (title, 0, 0, 1, 1);
+
+            var start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
+            flash_container.attach (start_logo, 0, 1, 1, 1);
+
+            process_start = new Gtk.Button.with_label (_("Start"));
+            process_start.get_style_context ().add_class("h2");
             process_start.get_style_context ().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             process_start.expand = true;
-            process_start.sensitive = false;
-            process_start.valign = Gtk.Align.CENTER;
             process_start.clicked.connect (flash_image);
-            grid.attach (process_start, 0, 1, 1, 1);
+            flash_container.attach (process_start, 0, 2, 1, 2);
 
-            content.attach (grid, 2, 0, 1, 1);
+            content.attach (flash_container, 2, 0, 1, 1);
         }
 
         private void select_image () {
@@ -320,7 +348,8 @@ namespace Imageburner {
             this.selected_device = item;
             this.device_list.add (item);
             this.device_list.show_all ();
-            this.no_device_message.hide ();
+
+            this.device_container.sensitive = selected_image != null && has_removable_devices;
         }
 
         private void device_removed (GLib.Drive drive) {
@@ -331,12 +360,29 @@ namespace Imageburner {
                 }
             }
             if (selected_device.drive == drive) {
-                if (this.device_list.get_children ().length () > 0) {
+                if (this.has_removable_devices) {
                     selected_device = this.device_list.get_children ().last ().data as Device;
                 } else {
                     selected_device = null;
-                    this.no_device_message.show ();
                 }
+            }
+
+            this.device_container.sensitive = selected_image != null && has_removable_devices;
+        }
+
+        private void set_image_label (string text) {
+            if (text != "") {
+                this.image_name.label = text;
+            } else {
+                this.image_name.label = ("<i>%s</i>").printf(_("Choose an image file…"));
+            }
+        }
+
+        private void set_device_label (string text) {
+            if (text != "") {
+                this.device_name.label = text;
+            } else {
+                this.device_name.label = ("<i>%s</i>").printf(_("No removable devices found…"));
             }
         }
     }

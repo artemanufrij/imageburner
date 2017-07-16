@@ -3,7 +3,7 @@
 <component type="desktop">
     <id>com.github.artemanufrij.imageburner.desktop</id>
     <metadata_license>CC0</metadata_license>
-    <name>Image burner</name>
+    <name>Image Burner</name>
     <summary>A simple image burner</summary>
     <description>
         <p>Burn images (.iso, .img) to removable devices like usb disk or sd card</p>
@@ -12,8 +12,8 @@
         <category>System</category>
     </categories>
     <custom>
-        <value key="x-appcenter-color-primary">#B3D8E0</value>
-        <value key="x-appcenter-color-primary-text">rgb(30,60,65)</value>
+        <value key="x-appcenter-color-primary">#3E9AD6</value>
+        <value key="x-appcenter-color-primary-text">rgb(255,255,255)</value>
         <value key="x-appcenter-suggested-price">1</value>
     </custom>
     <developer_name>Artem Anufrij</developer_name>
