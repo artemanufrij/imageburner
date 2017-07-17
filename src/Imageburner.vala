@@ -401,7 +401,7 @@ namespace Imageburner {
             if (selected_image == null) {
                 this.flash_label.label = ("<i>%s</i>").printf(_("No image file choosed…"));
             } else if (selected_device == null) {
-                this.flash_label.label = ("<i>%s</i>").printf(_("No device choosed…"));
+                this.flash_label.label = ("<i>%s</i>").printf(_("No device chosen…"));
             } else {
                 this.flash_label.label = _("Ready!");
             }
