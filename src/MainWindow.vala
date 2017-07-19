@@ -27,18 +27,8 @@
 
 namespace Imageburner {
 
-    public class ImageburnerApp : Granite.Application {
-        static ImageburnerApp _instance = null;
+    public class MainWindow : Gtk.Window {
 
-        public static ImageburnerApp instance {
-            get {
-                if (_instance == null)
-                    _instance = new ImageburnerApp ();
-                return _instance;
-            }
-        }
-
-        public Gtk.Window mainwindow;
         Gtk.Grid content;
         Gtk.Button open_image;
         Gtk.Label image_name;
@@ -116,37 +106,14 @@ namespace Imageburner {
         Imageburner.DeviceManager devices;
         Imageburner.DiskBurner burner;
 
-        construct {
-            program_name = "Image Burner";
-            exec_name = "imageburner";
+        public MainWindow () {
+            this.title = _("Image Burner");
+            this.resizable = false;
+            this.destroy.connect (() => {
+                Gtk.main_quit ();
+            });
 
-            application_id = "com.github.artemanufrij.imageburner";
-            app_launcher = application_id + ".desktop";
-            app_years = "2017";
-
-            app_icon = "drive-removable-media-usb";
-            main_url = "https://github.com/artemanufrij/imageburner";
-            bug_url = "https://github.com/artemanufrij/imageburner/issues";
-            help_url = "https://github.com/artemanufrij/imageburner/issues";
-
-            about_documenters = {
-                "Artem Anufrij <artem.anufrij@live.de>",
-            };
-            about_artists = {
-                "Artem Anufrij <artem.anufrij@live.de>"
-            };
-            about_authors = {
-                "Artem Anufrij <artem.anufrij@live.de>"
-            };
-
-            about_comments = "A simple image burner";
-        }
-
-        protected override void activate () {
-            if (mainwindow != null) {
-                mainwindow.present ();
-                return;
-            }
+            this.build_ui ();
 
             devices = DeviceManager.instance;
             devices.drive_connected.connect (device_added);
@@ -155,7 +122,7 @@ namespace Imageburner {
             burner = DiskBurner.instance;
             burner.begin.connect (() => {
                 bar.set_fraction (0);
-                bar.show_all ();
+                bar.visible = true;
 
                 this.image_container.sensitive = false;
                 this.device_container.sensitive = false;
@@ -166,7 +133,7 @@ namespace Imageburner {
                 this.image_container.sensitive = true;
                 this.device_container.sensitive = true;
                 this.flash_container.sensitive = true;
-                app_notification.title = _("%s was flashed on %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
+                app_notification.title = _("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
                 app_notification.send_notification ();
             });
             burner.progress.connect ((val) => {
@@ -178,20 +145,11 @@ namespace Imageburner {
                 }
             });
 
-            this.build_ui ();
             devices.init ();
-
             Gtk.main ();
         }
 
         private void build_ui () {
-            mainwindow = new Gtk.Window ();
-            mainwindow.title = _("Image Burner");
-            mainwindow.resizable = false;
-            mainwindow.destroy.connect (() => {
-                Gtk.main_quit ();
-            });
-
             content = new Gtk.Grid ();
             content.margin = 32;
             content.column_spacing = 32;
@@ -213,9 +171,9 @@ namespace Imageburner {
             bar.set_show_text (true);
             content.attach (bar, 0, 2, 3, 1);
 
-            mainwindow.add (content);
-            mainwindow.add (overlay);
-            mainwindow.show_all ();
+            //this.add (content);
+            this.add (overlay);
+            this.show_all ();
 
             bar.visible = false;
         }
@@ -290,8 +248,6 @@ namespace Imageburner {
 
             device_grid.show_all ();
             content.attach (device_container, 1, 0, 1, 1);
-
-            set_flash_label ();
         }
 
         private void build_flash_area () {
@@ -315,6 +271,7 @@ namespace Imageburner {
 
             flash_label = new Gtk.Label ("");
             flash_label.use_markup = true;
+            set_flash_label ();
             flash_container.attach (flash_label, 0, 2, 1, 1);
 
             content.attach (flash_container, 2, 0, 1, 1);
@@ -322,7 +279,7 @@ namespace Imageburner {
 
         private void select_image () {
             var file = new Gtk.FileChooserDialog (
-                _("Open"), mainwindow,
+                _("Open"), this,
                 Gtk.FileChooserAction.OPEN,
                 _("_Cancel"), Gtk.ResponseType.CANCEL,
                 _("_Open"), Gtk.ResponseType.ACCEPT);
@@ -399,7 +356,7 @@ namespace Imageburner {
 
         private void set_flash_label () {
             if (selected_image == null) {
-                this.flash_label.label = ("<i>%s</i>").printf(_("No image file choosed…"));
+                this.flash_label.label = ("<i>%s</i>").printf(_("No image file chosen…"));
             } else if (selected_device == null) {
                 this.flash_label.label = ("<i>%s</i>").printf(_("No device chosen…"));
             } else {
@@ -407,10 +364,4 @@ namespace Imageburner {
             }
         }
     }
-}
-
-public static int main (string [] args) {
-    Gtk.init (ref args);
-    var app = Imageburner.ImageburnerApp.instance;
-    return app.run (args);
 }

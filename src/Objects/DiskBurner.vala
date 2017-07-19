@@ -106,7 +106,7 @@ namespace Imageburner {
                     int percent = (int)(current_size * 100 / image_size);
                     if (percent != last_progress) {
                         last_progress = percent;
-                        progress (((double)percent)/100);
+                        progress (((double)percent) / 100);
                     }
                 } catch (IOChannelError e) {
                     stdout.printf ("IOChannelError: %s\n", e.message);

@@ -2,7 +2,8 @@ vala_precompile (VALA_C ${CMAKE_PROJECT_NAME}
     Widgets/Device.vala
     Manager/DeviceManager.vala
     Objects/DiskBurner.vala
-    Imageburner.vala
+    MainWindow.vala
+    Application.vala
 PACKAGES
     granite
     gtk+-3.0
