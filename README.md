@@ -1,6 +1,6 @@
 # Imageburner
 
-### A simple imageburner designed for elementary OS
+### A simple imageburner designed for [elementary OS](https://elementary.io/de/)
 ![screenshot](Screenshot.png)
 
 You'll need the following dependencies:
