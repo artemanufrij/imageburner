@@ -1,3 +1,13 @@
+com.github.artemanufrij.imageburnder (0.1.3) xenial; urgency=low
+
+  * ui imporvements #5
+  * added product licence #6
+  * added desktop notification, if window is not focused #9
+  * fixed handle canceling authentication #7
+  * fixed disk label, if removable devices couldn't be found #4
+
+ -- Artem Anufrij <artem.anufrij@live.de>  Tue, 25 Jul 2017 15:16:17 +0100
+
 com.github.artemanufrij.imageburnder (0.1.0) xenial; urgency=low
 
   * Initial Release.
