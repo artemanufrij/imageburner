@@ -27,7 +27,7 @@
 
 namespace Imageburner {
 
-    public class MainWindow : Gtk.Window {
+    public class MainWindow : Gtk.ApplicationWindow {
 
         Gtk.Grid content;
         Gtk.Button open_image;
@@ -42,6 +42,7 @@ namespace Imageburner {
         Gtk.Grid device_container;
 
         Granite.Widgets.Toast app_notification;
+        Notification desktop_notification;
 
         Gtk.Button flash_start;
         Gtk.Grid flash_container;
@@ -109,9 +110,6 @@ namespace Imageburner {
         public MainWindow () {
             this.title = _("Image Burner");
             this.resizable = false;
-            this.destroy.connect (() => {
-                Gtk.main_quit ();
-            });
 
             this.build_ui ();
 
@@ -133,8 +131,22 @@ namespace Imageburner {
                 this.image_container.sensitive = true;
                 this.device_container.sensitive = true;
                 this.flash_container.sensitive = true;
-                app_notification.title = _("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
-                app_notification.send_notification ();
+
+                var message = _("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
+
+                if (is_active) {
+                    app_notification.title = message;
+                    app_notification.send_notification ();
+                } else {
+                    desktop_notification.set_body (message);
+                    application.send_notification ("notify.app", desktop_notification);
+                }
+            });
+            burner.canceled.connect (() => {
+                bar.visible = false;
+                this.image_container.sensitive = true;
+                this.device_container.sensitive = true;
+                this.flash_container.sensitive = true;
             });
             burner.progress.connect ((val) => {
                 debug ("percent: %f", val);
@@ -146,7 +158,7 @@ namespace Imageburner {
             });
 
             devices.init ();
-            Gtk.main ();
+            present ();
         }
 
         private void build_ui () {
@@ -162,6 +174,8 @@ namespace Imageburner {
             var overlay = new Gtk.Overlay ();
             overlay.add (content);
             overlay.add_overlay (app_notification);
+
+            desktop_notification = new Notification (_("Finished"));
 
             build_image_area ();
 
@@ -236,7 +250,7 @@ namespace Imageburner {
             });
             device_container.attach (select_device, 0, 3, 1, 1);
 
-            device_name = new Gtk.Label ("");
+            device_name = new Gtk.Label (("<i>%s</i>").printf(_("No removable devices found…")));
             device_name.use_markup = true;
             device_container.attach (device_name, 0, 2, 1, 1);
 

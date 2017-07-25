@@ -38,7 +38,9 @@ namespace Imageburner {
             }
         }
 
-		private DiskBurner () {
+		private DiskBurner () {}
+
+        construct {
             this.is_running = false;
             this.begin.connect (() => {
                 this.is_running = true;
@@ -46,7 +48,11 @@ namespace Imageburner {
             });
             this.finished.connect (() => {
                 this.is_running = false;
-                debug ("end");
+                debug ("finished");
+            });
+            this.canceled.connect (() => {
+                this.is_running = false;
+                debug ("canceled");
             });
         }
 
@@ -54,6 +60,7 @@ namespace Imageburner {
 
         public signal void begin ();
         public signal void finished ();
+        public signal void canceled ();
         public signal void progress (double percent);
 
         File current_image;
@@ -96,8 +103,9 @@ namespace Imageburner {
 
             IOChannel error = new IOChannel.unix_new (standard_error);
 	        error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
-                if (condition == IOCondition.HUP)
+                if (condition == IOCondition.HUP) {
                     return false;
+                }
 
                 try {
                     string line;
@@ -121,7 +129,14 @@ namespace Imageburner {
 
             ChildWatch.add (child_pid, (pid, status) => {
 		        Process.close_pid (pid);
-                finished ();
+
+                if (last_progress > 0) {
+                    finished ();
+                } else {
+                    canceled ();
+                }
+
+                last_progress = 0;
 	        });
 
             begin ();

@@ -2,7 +2,8 @@
 <!-- Copyright 2017 Artem Anufrij <artem.anufrij@live.de> -->
 <component type="desktop">
     <id>com.github.artemanufrij.imageburner.desktop</id>
-    <metadata_license>CC0</metadata_license>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0+</project_license>
     <name>Image Burner</name>
     <summary>A simple image burner</summary>
     <description>

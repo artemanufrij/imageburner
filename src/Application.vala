@@ -55,8 +55,8 @@ namespace Imageburner {
             }
 
             mainwindow = new MainWindow ();
+            mainwindow.set_application(this);
         }
-
     }
 }
 
