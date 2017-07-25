@@ -150,9 +150,12 @@ namespace Imageburner {
         }
 
         private void build_ui () {
+            get_style_context ().add_class ("rounded");
+
             content = new Gtk.Grid ();
             content.margin = 32;
             content.column_spacing = 32;
+            content.column_homogeneous = true;
             content.row_spacing = 24;
 
             app_notification = new Granite.Widgets.Toast ("");
@@ -191,13 +194,14 @@ namespace Imageburner {
             var image_logo = new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.DIALOG);
             image_container.attach (image_logo, 0, 1, 1, 1);
 
-            open_image = new Gtk.Button.with_label (_("Open"));
+            open_image = new Gtk.Button.with_label (_("Select Image"));
             open_image.clicked.connect (select_image);
-            open_image.halign = Gtk.Align.CENTER;
             image_container.attach (open_image, 0, 3, 1, 1);
 
             image_name = new Gtk.Label ("");
+            image_name.max_width_chars = 30;
             image_name.use_markup = true;
+            image_name.wrap = true;
             set_image_label ("");
             image_container.attach (image_name, 0, 2, 1, 1);
 
@@ -224,8 +228,9 @@ namespace Imageburner {
             device_logo = new Gtk.Image.from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
             device_container.attach (device_logo, 0, 1, 1, 1);
 
-            select_device = new Gtk.Button.with_label (_("Choose"));
-            select_device.halign = Gtk.Align.CENTER;
+            select_device = new Gtk.Button.with_label (_("Select Drive"));
+            select_device.valign = Gtk.Align.END;
+            select_device.vexpand = true;
             select_device.clicked.connect (() => {
                 device_popover.visible = !device_popover.visible;
             });
@@ -253,6 +258,7 @@ namespace Imageburner {
         private void build_flash_area () {
             flash_container = new Gtk.Grid ();
             flash_container.row_spacing = 24;
+            flash_container.sensitive = false;
             flash_container.width_request = 180;
 
             var title = new Gtk.Label (_("Flash"));
@@ -264,8 +270,9 @@ namespace Imageburner {
             flash_container.attach (start_logo, 0, 1, 1, 1);
 
             flash_start = new Gtk.Button.with_label (_("Write Image"));
+            flash_start.valign = Gtk.Align.END;
+            flash_start.vexpand = true;
             flash_start.get_style_context ().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-            flash_start.halign = Gtk.Align.CENTER;
             flash_start.clicked.connect (flash_image);
             flash_container.attach (flash_start, 0, 3, 1, 1);
 
