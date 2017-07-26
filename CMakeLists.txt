@@ -35,4 +35,5 @@ include (ValaVersion)
 ensure_vala_version ("0.21.2" MINIMUM)
 
 add_subdirectory (src)
+add_subdirectory (po)
 add_subdirectory (data)
