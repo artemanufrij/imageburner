@@ -8,5 +8,4 @@ Exec=com.github.artemanufrij.imageburner %U
 Terminal=false
 Categories=System;GNOME;GTK;
 X-GNOME-Gettext-Domain=imageburner
-Actions=AboutDialog;
 Keywords=Image;Burn;Flash;USB;
