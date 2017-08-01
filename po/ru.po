@@ -59,7 +59,7 @@ msgstr "Съемные устройства не найдены..."
 
 #: ../src/MainWindow.vala:278
 msgid "Flash"
-msgstr "Записать"
+msgstr "Запись"
 
 #: ../src/MainWindow.vala:286
 msgid "Write Image"
