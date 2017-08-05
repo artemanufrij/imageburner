@@ -162,8 +162,6 @@ namespace Imageburner {
         }
 
         private void build_ui () {
-            get_style_context ().add_class ("rounded");
-
             content = new Gtk.Grid ();
             content.margin = 32;
             content.column_spacing = 32;
