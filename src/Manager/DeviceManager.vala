@@ -73,7 +73,7 @@ namespace Imageburner {
         private bool valid_device (Drive drive) {
             string unix_device = drive.get_identifier ("unix-device");
             debug ("unix_device: %s", unix_device);
-            return drive.is_media_removable () && unix_device.index_of ("/dev/sd") == 0 || unix_device.index_of ("/dev/mmc") == 0;
+            return (drive.is_media_removable () || drive.can_stop ()) && (unix_device != null && (unix_device.index_of ("/dev/sd") == 0 || unix_device.index_of ("/dev/mmc") == 0));
         }
     }
 }

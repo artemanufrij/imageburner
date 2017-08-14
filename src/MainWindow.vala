@@ -346,7 +346,7 @@ namespace Imageburner {
                     this.device_list.remove (child);
                 }
             }
-            if (selected_device.drive == drive) {
+            if (selected_device != null && selected_device.drive == drive) {
                 if (this.has_removable_devices) {
                     selected_device = this.device_list.get_children ().last ().data as Device;
                 } else {
