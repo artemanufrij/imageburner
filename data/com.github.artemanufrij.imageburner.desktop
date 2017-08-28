@@ -1,8 +1,11 @@
 [Desktop Entry]
 Type=Application
 Name=Image Burner
+Name[lt]=Atvaizdžių įrašymo programa
 Comment=A simple image burner
+Comment[lt]=Paprasta atvaizdžių įrašymo programa
 GenericName=Image Burner
+GenericName[lt]=Atvaizdžių įrašymo programa
 Icon=artemanufrij.imageburner
 Exec=com.github.artemanufrij.imageburner %U
 Terminal=false
