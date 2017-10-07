@@ -51,7 +51,7 @@ namespace Imageburner {
         Gtk.ProgressBar bar;
 
         File _selected_image = null;
-        File selected_image {
+        public File selected_image {
             get { return _selected_image; }
             set {
                 _selected_image = value;

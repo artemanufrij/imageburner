@@ -40,13 +40,14 @@ namespace Imageburner {
         }
 
         construct {
+            this.flags |= GLib.ApplicationFlags.HANDLES_OPEN;
             program_name = "Image Burner";
             exec_name = "com.github.artemanufrij.imageburner";
             application_id = "com.github.artemanufrij.imageburner";
             app_launcher = application_id + ".desktop";
         }
 
-        Gtk.Window mainwindow;
+        MainWindow mainwindow;
 
         protected override void activate () {
             if (mainwindow != null) {
@@ -56,6 +57,13 @@ namespace Imageburner {
 
             mainwindow = new MainWindow ();
             mainwindow.set_application(this);
+        }
+
+        public override void open (File[] files, string hint) {
+            activate ();
+            if (files [0].query_exists ()) {
+                mainwindow.selected_image = files [0];
+            }
         }
     }
 }
