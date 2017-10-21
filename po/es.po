@@ -1,5 +1,93 @@
+
+# ImageBurner
+# artemanufrij <>
+#
+#, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: com.github.artemanufrij.imageburner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-26 22:08+0200\n"
+"PO-Revision-Date: 2017-10-20 23:14+6000\n"
+"Last-Translator: Marco Carrizales <tamoxin@msn.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/MainWindow.vala:63 ../src/MainWindow.vala:85
+msgid "Cambiar"
+msgstr ""
+
+#: ../src/MainWindow.vala:66 ../src/MainWindow.vala:303
+msgid "Abrir"
+msgstr ""
+
+#: ../src/MainWindow.vala:93 ../src/MainWindow.vala:231
+msgid "Dispositivo"
+msgstr ""
+
+#: ../src/MainWindow.vala:111
+msgid "Grabador de Imagen"
+msgstr ""
+
+#: ../src/MainWindow.vala:135
+msgid "%s fue escrito en %s"
+msgstr ""
+
+#: ../src/MainWindow.vala:178
+msgid "Finalizado"
+msgstr ""
+
+#: ../src/MainWindow.vala:203
+msgid "Imagen"
+msgstr ""
+
+#: ../src/MainWindow.vala:211
+msgid "Seleccionar Imagen"
+msgstr ""
+
+#: ../src/MainWindow.vala:245
+msgid "Select Dispositivo"
+msgstr ""
+
+#: ../src/MainWindow.vala:253 ../src/MainWindow.vala:374
+msgid "Dispositivo extraible no encontrado…"
+msgstr ""
+
+#: ../src/MainWindow.vala:278
+msgid "Flash"
+msgstr ""
+
+#: ../src/MainWindow.vala:286
+msgid "Escribir Imagen"
+msgstr ""
+
+#: ../src/MainWindow.vala:305
+msgid "_Cancelar"
+msgstr ""
+
+#: ../src/MainWindow.vala:306
+msgid "_Abrir"
+msgstr ""
+
+#: ../src/MainWindow.vala:309
+msgid "Archivo de Imagen"
+msgstr ""
+
+#: ../src/MainWindow.vala:366
+msgid "Elige un archivo de imagen…"
+msgstr ""
+
+#: ../src/MainWindow.vala:380
+msgid "No se ha seleccionado archivo de imagen…"
+msgstr ""
+
+#: ../src/MainWindow.vala:382
+msgid "No se ha seleccionado dispositivo…"
+msgstr ""
+
+#: ../src/MainWindow.vala:384
+msgid "¡Listo!"
+msgstr ""
