@@ -11,4 +11,4 @@ Exec=com.github.artemanufrij.imageburner %U
 Terminal=false
 Categories=System;GNOME;GTK;
 X-GNOME-Gettext-Domain=imageburner
-Keywords=Image;Burn;Flash;USB;
+Keywords=image;burn;flash;usb;etcher;
