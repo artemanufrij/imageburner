@@ -27,4 +27,15 @@
             <image>https://raw.githubusercontent.com/artemanufrij/imageburner/master/Screenshot.png</image>
         </screenshot>
     </screenshots>
+    <releases>
+        <release version="0.1.7" date="2017-11-5">
+            <description>
+                <p>Translation:</p>
+                <ul>
+                    <li>Spanish (by Marco Carrizales, Juankz)</li>
+                    <li>French (by nvivant)</li>
+                </ul>
+            </description>
+        </release>
+    </releases>
 </component>
