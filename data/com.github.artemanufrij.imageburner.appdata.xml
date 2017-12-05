@@ -28,7 +28,15 @@
         </screenshot>
     </screenshots>
     <releases>
-        <release version="0.1.7" date="2017-11-5">
+        <release version="0.1.8" date="2017-12-05">
+            <description>
+                <p>New:</p>
+                <ul>
+                    <li>Show checksum after choosing an iso or img file</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.1.7" date="2017-11-05">
             <description>
                 <p>Translation:</p>
                 <ul>

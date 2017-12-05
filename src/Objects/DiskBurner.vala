@@ -38,7 +38,7 @@ namespace Imageburner {
             }
         }
 
-		private DiskBurner () {}
+        private DiskBurner () {}
 
         construct {
             this.is_running = false;
@@ -88,21 +88,21 @@ namespace Imageburner {
 
             int standard_error = 0;
             try {
-	            Process.spawn_async_with_pipes ("/",
-		            spawn_args,
-		            null,
-		            SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
-		            null,
-		            out child_pid,
-		            null,
-		            null,
-		            out standard_error);
+                Process.spawn_async_with_pipes ("/",
+                    spawn_args,
+                    null,
+                    SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+                    null,
+                    out child_pid,
+                    null,
+                    null,
+                    out standard_error);
             } catch (GLib.SpawnError e) {
                 stdout.printf ("GLibSpawnError: %s\n", e.message);
             }
 
             IOChannel error = new IOChannel.unix_new (standard_error);
-	        error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+            error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
                 if (condition == IOCondition.HUP) {
                     return false;
                 }
@@ -125,10 +125,10 @@ namespace Imageburner {
                 }
 
                 return true;
-	        });
+            });
 
             ChildWatch.add (child_pid, (pid, status) => {
-		        Process.close_pid (pid);
+                Process.close_pid (pid);
 
                 if (last_progress > 0) {
                     finished ();
@@ -137,7 +137,7 @@ namespace Imageburner {
                 }
 
                 last_progress = 0;
-	        });
+            });
 
             begin ();
         }

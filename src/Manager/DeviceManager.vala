@@ -49,30 +49,27 @@ namespace Imageburner {
             monitor = GLib.VolumeMonitor.get ();
 
             monitor.drive_connected.connect ((drive) => {
-	            debug ("Drive connected: %s\n", drive.get_name ());
                 if (valid_device (drive)) {
                     drive_connected (drive);
                 }
             });
 
             monitor.drive_disconnected.connect ((drive) => {
-	            debug ("Drive disconnected: %s\n", drive.get_name ());
                 drive_disconnected (drive);
             });
         }
 
         public void init () {
             GLib.List<GLib.Drive> drives = monitor.get_connected_drives ();
-	        foreach (Drive drive in drives) {
+            foreach (Drive drive in drives) {
                 if (valid_device (drive)) {
                     drive_connected (drive);
                 }
-	        }
+            }
         }
 
         private bool valid_device (Drive drive) {
             string unix_device = drive.get_identifier ("unix-device");
-            debug ("unix_device: %s", unix_device);
             return (drive.is_media_removable () || drive.can_stop ()) && (unix_device != null && (unix_device.index_of ("/dev/sd") == 0 || unix_device.index_of ("/dev/mmc") == 0));
         }
     }
