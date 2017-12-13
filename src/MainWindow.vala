@@ -44,6 +44,7 @@ namespace Imageburner {
         Gtk.Grid device_container;
         Gtk.HeaderBar headerbar;
         Gtk.ComboBoxText hash_chooser;
+        Gtk.Spinner hash_waiting;
 
         Granite.Widgets.Toast app_notification;
         Notification desktop_notification;
@@ -113,10 +114,12 @@ namespace Imageburner {
 
         public MainWindow () {
             calculate_finished.connect ((result) => {
+                hash_waiting.active = false;
                 headerbar.title = result;
                 hash_chooser.sensitive = true;
             });
             calculate_begin.connect (() => {
+                hash_waiting.active = true;
                 headerbar.title = _("Calculating checksum…");
                 hash_chooser.sensitive = false;
             });
@@ -198,6 +201,9 @@ namespace Imageburner {
                 }
             });
             headerbar.pack_end (hash_chooser);
+
+            hash_waiting = new Gtk.Spinner ();
+            headerbar.pack_end (hash_waiting);
 
             app_notification = new Granite.Widgets.Toast ("");
             var overlay = new Gtk.Overlay ();
