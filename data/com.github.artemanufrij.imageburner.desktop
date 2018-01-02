@@ -1,16 +1,14 @@
 [Desktop Entry]
 Type=Application
 Name=Image Burner
+Name[lt]=Atvaizdžių įrašymo programa
 Comment=A simple image burner
+Comment[lt]=Paprasta atvaizdžių įrašymo programa
 GenericName=Image Burner
-Icon=artemanufrij.imageburner
+GenericName[lt]=Atvaizdžių įrašymo programa
+Icon=com.github.artemanufrij.imageburner
 Exec=com.github.artemanufrij.imageburner %U
 Terminal=false
 Categories=System;GNOME;GTK;
 X-GNOME-Gettext-Domain=imageburner
-Actions=AboutDialog;
-Keywords=Image;Burn;Flash;USB;
-
-[Desktop Action AboutDialog]
-Exec=com.github.artemanufrij.imageburner --about
-Name=About Image Burner
+Keywords=image;burn;flash;usb;etcher;

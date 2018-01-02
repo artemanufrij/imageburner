@@ -28,6 +28,8 @@
 namespace Imageburner {
 
     public class MainWindow : Gtk.ApplicationWindow {
+        public signal void calculate_begin ();
+        public signal void calculate_finished (string result);
 
         Gtk.Grid content;
         Gtk.Button open_image;
@@ -40,6 +42,9 @@ namespace Imageburner {
         Gtk.Button select_device;
         Gtk.Label device_name;
         Gtk.Grid device_container;
+        Gtk.HeaderBar headerbar;
+        Gtk.ComboBoxText hash_chooser;
+        Gtk.Spinner hash_waiting;
 
         Granite.Widgets.Toast app_notification;
         Notification desktop_notification;
@@ -51,7 +56,7 @@ namespace Imageburner {
         Gtk.ProgressBar bar;
 
         File _selected_image = null;
-        File selected_image {
+        public File selected_image {
             get { return _selected_image; }
             set {
                 _selected_image = value;
@@ -108,7 +113,16 @@ namespace Imageburner {
         Imageburner.DiskBurner burner;
 
         public MainWindow () {
-            this.title = _("Image Burner");
+            calculate_finished.connect ((result) => {
+                hash_waiting.active = false;
+                headerbar.title = result;
+                hash_chooser.sensitive = true;
+            });
+            calculate_begin.connect (() => {
+                hash_waiting.active = true;
+                headerbar.title = _("Calculating checksum…");
+                hash_chooser.sensitive = false;
+            });
             this.resizable = false;
 
             this.build_ui ();
@@ -122,15 +136,17 @@ namespace Imageburner {
                 bar.set_fraction (0);
                 bar.visible = true;
 
-                this.image_container.sensitive = false;
-                this.device_container.sensitive = false;
-                this.flash_container.sensitive = false;
+                image_container.sensitive = false;
+                device_container.sensitive = false;
+                flash_container.sensitive = false;
+                hash_chooser.sensitive = false;
             });
             burner.finished.connect (() => {
                 bar.visible = false;
-                this.image_container.sensitive = true;
-                this.device_container.sensitive = true;
-                this.flash_container.sensitive = true;
+                image_container.sensitive = true;
+                device_container.sensitive = true;
+                flash_container.sensitive = true;
+                hash_chooser.sensitive = true;
 
                 var message = _("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
 
@@ -162,13 +178,32 @@ namespace Imageburner {
         }
 
         private void build_ui () {
-            get_style_context ().add_class ("rounded");
-
             content = new Gtk.Grid ();
             content.margin = 32;
             content.column_spacing = 32;
             content.column_homogeneous = true;
             content.row_spacing = 24;
+
+            headerbar = new Gtk.HeaderBar ();
+            headerbar.show_close_button = true;
+            headerbar.title = _("Image Burner");
+            this.set_titlebar (headerbar);
+
+            hash_chooser = new Gtk.ComboBoxText ();
+            hash_chooser.append ("MD5", "MD5");
+            hash_chooser.append ("SHA256", "SHA256");
+            hash_chooser.append ("SHA1", "SHA1");
+            hash_chooser.active = 1;
+            hash_chooser.tooltip_text = _("Choose an algorithm");
+            hash_chooser.changed.connect (() => {
+                if (_selected_image != null) {
+                    get_checksum.begin ();
+                }
+            });
+            headerbar.pack_end (hash_chooser);
+
+            hash_waiting = new Gtk.Spinner ();
+            headerbar.pack_end (hash_waiting);
 
             app_notification = new Granite.Widgets.Toast ("");
             var overlay = new Gtk.Overlay ();
@@ -314,6 +349,7 @@ namespace Imageburner {
             if (file.run () == Gtk.ResponseType.ACCEPT) {
                 selected_image = file.get_file ();
                 debug (file.get_filename ());
+                get_checksum ();
             }
 
             file.destroy();
@@ -348,7 +384,7 @@ namespace Imageburner {
                     this.device_list.remove (child);
                 }
             }
-            if (selected_device.drive == drive) {
+            if (selected_device != null && selected_device.drive == drive) {
                 if (this.has_removable_devices) {
                     selected_device = this.device_list.get_children ().last ().data as Device;
                 } else {
@@ -383,6 +419,55 @@ namespace Imageburner {
             } else {
                 this.flash_label.label = _("Ready!");
             }
+        }
+
+        private async void get_checksum () {
+            calculate_begin ();
+            checksum_thread.begin ((obj, res) => {
+                calculate_finished (checksum_thread.end (res));
+            });
+        }
+
+        private async string checksum_thread () {
+            SourceFunc callback = checksum_thread.callback;
+            ChecksumType checksumtype = ChecksumType.SHA256;
+            /*switch (hash_chooser.active_id) {
+                case "MD5":
+                    checksumtype = ChecksumType.MD5;
+                    break;
+                case "SHA1":
+                    checksumtype = ChecksumType.SHA1;
+                    break;
+                case "SHA256":
+                    checksumtype = ChecksumType.SHA256;
+                    break;
+                case "SHA512":
+                    checksumtype = ChecksumType.SHA512;
+                    break;
+            }*/
+            string digest = "";
+
+            ThreadFunc<void*> run = () => {
+                Checksum checksum = new Checksum (checksumtype);
+                FileStream stream = FileStream.open (selected_image.get_path (), "r");
+                uint8 fbuf[100];
+                size_t size;
+
+                while ((size = stream.read (fbuf)) > 0) {
+                    checksum.update (fbuf, size);
+                }
+                digest = checksum.get_string ();
+                Idle.add ((owned) callback);
+                return null;
+            };
+            try {
+                new Thread<void*>.try (null, run);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            yield;
+            return digest;
         }
     }
 }

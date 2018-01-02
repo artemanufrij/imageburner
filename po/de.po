@@ -1,5 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Artem Anufrij <artem.anufrij@live.de>, 2017.
+#
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-26 22:08+0200\n"
+"PO-Revision-Date: 2017-08-05 08:40+0200\n"
+"Last-Translator: Artem Anufrij <artem.anufrij@live.de>\n"
+"Language-Team: Deutsch <artem.anufrij@live.de>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../src/MainWindow.vala:63 ../src/MainWindow.vala:85
+msgid "Change"
+msgstr "Ändern"
+
+#: ../src/MainWindow.vala:66 ../src/MainWindow.vala:303
+msgid "Open"
+msgstr "Öffnen"
+
+#: ../src/MainWindow.vala:93 ../src/MainWindow.vala:231
+msgid "Device"
+msgstr "Datenträger"
+
+#: ../src/MainWindow.vala:111
+msgid "Image Burner"
+msgstr "Image Burner"
+
+#: ../src/MainWindow.vala:135
+msgid "%s was written onto %s"
+msgstr "%s wurde auf %s geschrieben"
+
+#: ../src/MainWindow.vala:178
+msgid "Finished"
+msgstr "Abgeschlossen"
+
+#: ../src/MainWindow.vala:203
+msgid "Image"
+msgstr "Abbild"
+
+#: ../src/MainWindow.vala:211
+msgid "Select Image"
+msgstr "Abbild auswählen"
+
+#: ../src/MainWindow.vala:245
+msgid "Select Drive"
+msgstr "Datenträger auswählen"
+
+#: ../src/MainWindow.vala:253 ../src/MainWindow.vala:374
+msgid "No removable devices found…"
+msgstr "Keine Wechseldatenträger gefunden…"
+
+#: ../src/MainWindow.vala:278
+msgid "Flash"
+msgstr "Erstellen"
+
+#: ../src/MainWindow.vala:286
+msgid "Write Image"
+msgstr "Vorgang starten"
+
+#: ../src/MainWindow.vala:305
+msgid "_Cancel"
+msgstr "_Abbrechen"
+
+#: ../src/MainWindow.vala:306
+msgid "_Open"
+msgstr "_Öffnen"
+
+#: ../src/MainWindow.vala:309
+msgid "Image files"
+msgstr "Abbilddateien"
+
+#: ../src/MainWindow.vala:366
+msgid "Choose an image file…"
+msgstr "Abbilddatei auswählen…"
+
+#: ../src/MainWindow.vala:380
+msgid "No image file chosen…"
+msgstr "Kein Abbild ausgewählt…"
+
+#: ../src/MainWindow.vala:382
+msgid "No device chosen…"
+msgstr "Kein Datenträger ausgewählt…"
+
+#: ../src/MainWindow.vala:384
+msgid "Ready!"
+msgstr "Bereit!"
