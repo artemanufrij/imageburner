@@ -41,7 +41,7 @@
             <description>
                 <p>New:</p>
                 <ul>
-                    <li>Show spinner until hash code will calculating</li>
+                    <li>Show spinner while checksum hash is being calculated</li>
                 </ul>
             </description>
         </release>
