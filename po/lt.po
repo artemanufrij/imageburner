@@ -7,89 +7,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 13:08+0300\n"
-"PO-Revision-Date: 2017-08-28 13:15+0300\n"
+"POT-Creation-Date: 2018-02-17 13:31+0200\n"
+"PO-Revision-Date: 2018-02-17 13:32+0200\n"
+"Last-Translator: Moo\n"
 "Language-Team: \n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: Moo\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/MainWindow.vala:63 ../src/MainWindow.vala:85
+#: ../src/MainWindow.vala:67 ../src/MainWindow.vala:89
 msgid "Change"
 msgstr "Pakeisti"
 
-#: ../src/MainWindow.vala:66 ../src/MainWindow.vala:303
+#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:332
 msgid "Open"
 msgstr "Atverti"
 
-#: ../src/MainWindow.vala:93 ../src/MainWindow.vala:231
+#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:260
 msgid "Device"
 msgstr "Įrenginys"
 
-#: ../src/MainWindow.vala:111
-msgid "Image Burner"
-msgstr "Atvaizdžių įrašymo programa"
+#: ../src/MainWindow.vala:120
+msgid "Calculating checksum…"
+msgstr "Apskaičiuojama kontrolinė suma…"
 
-#: ../src/MainWindow.vala:135
+#: ../src/MainWindow.vala:148
 msgid "%s was written onto %s"
 msgstr "%s buvo įrašytas į %s"
 
-#: ../src/MainWindow.vala:178
+#: ../src/MainWindow.vala:186
+msgid "Image Burner"
+msgstr "Atvaizdžių įrašymo programa"
+
+#: ../src/MainWindow.vala:194
+msgid "Choose an algorithm"
+msgstr "Pasirinkite algoritmą"
+
+#: ../src/MainWindow.vala:207
 msgid "Finished"
 msgstr "Užbaigta"
 
-#: ../src/MainWindow.vala:203
+#: ../src/MainWindow.vala:232
 msgid "Image"
 msgstr "Atvaizdis"
 
-#: ../src/MainWindow.vala:211
+#: ../src/MainWindow.vala:240
 msgid "Select Image"
 msgstr "Pasirinkti atvaizdį"
 
-#: ../src/MainWindow.vala:245
+#: ../src/MainWindow.vala:274
 msgid "Select Drive"
 msgstr "Pasirinkti diską"
 
-#: ../src/MainWindow.vala:253 ../src/MainWindow.vala:374
+#: ../src/MainWindow.vala:282 ../src/MainWindow.vala:404
 msgid "No removable devices found…"
 msgstr "Nerasta jokių keičiamųjų įrenginių…"
 
-#: ../src/MainWindow.vala:278
+#: ../src/MainWindow.vala:307
 msgid "Flash"
 msgstr "Įrašymas"
 
-#: ../src/MainWindow.vala:286
+#: ../src/MainWindow.vala:315
 msgid "Write Image"
 msgstr "Įrašyti atvaizdį"
 
-#: ../src/MainWindow.vala:305
+#: ../src/MainWindow.vala:334
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
-#: ../src/MainWindow.vala:306
+#: ../src/MainWindow.vala:335
 msgid "_Open"
 msgstr "A_tverti"
 
-#: ../src/MainWindow.vala:309
+#: ../src/MainWindow.vala:338
 msgid "Image files"
 msgstr "Atvaizdžio failai"
 
-#: ../src/MainWindow.vala:366
+#: ../src/MainWindow.vala:396
 msgid "Choose an image file…"
 msgstr "Pasirinkite atvaizdžio failą…"
 
-#: ../src/MainWindow.vala:380
+#: ../src/MainWindow.vala:410
 msgid "No image file chosen…"
 msgstr "Nepasirinktas joks atvaizdžio failas…"
 
-#: ../src/MainWindow.vala:382
+#: ../src/MainWindow.vala:412
 msgid "No device chosen…"
 msgstr "Nepasirinktas joks įrenginys…"
 
-#: ../src/MainWindow.vala:384
+#: ../src/MainWindow.vala:414
 msgid "Ready!"
 msgstr "Pasiruošę!"
