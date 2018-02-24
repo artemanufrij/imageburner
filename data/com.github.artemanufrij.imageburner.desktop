@@ -1,11 +1,17 @@
 [Desktop Entry]
 Type=Application
 Name=Image Burner
+Name[ca]=Enregistrador d’imatges
+Name[es]=Grabador de imágenes
 Name[lt]=Atvaizdžių įrašymo programa
 Comment=A simple image burner
+Comment[ca]=Un enregistrador d’imatges senzill
+Comment[es]=Un grabador de imágenes sencillo
 Comment[lt]=Paprasta atvaizdžių įrašymo programa
 Comment[pl]=Prosta nagrywarka plików obrazów
 GenericName=Image Burner
+GenericName[ca]=Enregistrador d’imatges
+GenericName[es]=Grabador de imágenes
 GenericName[lt]=Atvaizdžių įrašymo programa
 Icon=com.github.artemanufrij.imageburner
 Exec=com.github.artemanufrij.imageburner %U

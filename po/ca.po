@@ -1,4 +1,97 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-05 21:22+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: ../src/MainWindow.vala:67 ../src/MainWindow.vala:89
+msgid "Change"
+msgstr "Canvia"
+
+#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:332
+msgid "Open"
+msgstr "Obre"
+
+#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:260
+msgid "Device"
+msgstr "Dispositiu"
+
+#: ../src/MainWindow.vala:120
+msgid "Calculating checksum…"
+msgstr "S’està calculant la suma de verificació…"
+
+#: ../src/MainWindow.vala:148
+msgid "%s was written onto %s"
+msgstr "%s s’ha escrit a %s"
+
+#: ../src/MainWindow.vala:186
+msgid "Image Burner"
+msgstr "Enregistrador d’imatges"
+
+#: ../src/MainWindow.vala:194
+msgid "Choose an algorithm"
+msgstr "Trieu un algorisme"
+
+#: ../src/MainWindow.vala:207
+msgid "Finished"
+msgstr "Finalitzat"
+
+#: ../src/MainWindow.vala:232
+msgid "Image"
+msgstr "Imatge"
+
+#: ../src/MainWindow.vala:240
+msgid "Select Image"
+msgstr "Trieu una imatge"
+
+#: ../src/MainWindow.vala:274
+msgid "Select Drive"
+msgstr "Trieu una unitat"
+
+#: ../src/MainWindow.vala:282 ../src/MainWindow.vala:404
+msgid "No removable devices found…"
+msgstr "No s’ha trobat cap dispositiu extraïble…"
+
+#: ../src/MainWindow.vala:307
+msgid "Flash"
+msgstr "Instal·la la imatge"
+
+#: ../src/MainWindow.vala:315
+msgid "Write Image"
+msgstr "Escriu la imatge"
+
+#: ../src/MainWindow.vala:334
+msgid "_Cancel"
+msgstr "_Cancel·la"
+
+#: ../src/MainWindow.vala:335
+msgid "_Open"
+msgstr "_Obre"
+
+#: ../src/MainWindow.vala:338
+msgid "Image files"
+msgstr "Fitxers d’imatge"
+
+#: ../src/MainWindow.vala:396
+msgid "Choose an image file…"
+msgstr "Trieu un fitxer d’imatge…"
+
+#: ../src/MainWindow.vala:410
+msgid "No image file chosen…"
+msgstr "No s’ha triat cap imatge…"
+
+#: ../src/MainWindow.vala:412
+msgid "No device chosen…"
+msgstr "No s’ha triat cap dispositiu…"
+
+#: ../src/MainWindow.vala:414
+msgid "Ready!"
+msgstr "A punt!"
