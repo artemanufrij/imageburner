@@ -4,6 +4,7 @@ Name=Image Burner
 Name[lt]=Atvaizdžių įrašymo programa
 Comment=A simple image burner
 Comment[lt]=Paprasta atvaizdžių įrašymo programa
+Comment[pl]=Prosta nagrywarka plików obrazów
 GenericName=Image Burner
 GenericName[lt]=Atvaizdžių įrašymo programa
 Icon=com.github.artemanufrij.imageburner
