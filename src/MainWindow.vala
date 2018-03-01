@@ -431,20 +431,14 @@ namespace Imageburner {
         private async string checksum_thread () {
             SourceFunc callback = checksum_thread.callback;
             ChecksumType checksumtype = ChecksumType.SHA256;
-            /*switch (hash_chooser.active_id) {
+            switch (hash_chooser.active_id) {
                 case "MD5":
                     checksumtype = ChecksumType.MD5;
                     break;
                 case "SHA1":
                     checksumtype = ChecksumType.SHA1;
                     break;
-                case "SHA256":
-                    checksumtype = ChecksumType.SHA256;
-                    break;
-                case "SHA512":
-                    checksumtype = ChecksumType.SHA512;
-                    break;
-            }*/
+            }
             string digest = "";
 
             ThreadFunc<void*> run = () => {
