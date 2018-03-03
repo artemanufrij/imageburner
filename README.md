@@ -1,6 +1,6 @@
 <div>
   <h1 align="center">Imageburner</h1>
-  <h3 align="center">A simple imageburner inspired by Etcher's UI</h3>
+  <h3 align="center"><img src="data/icons/com.github.artemanufrij.imageburner.svg"/><br>A simple imageburner inspired by Etcher's UI</h3>
   <p align="center">Designed for <a href="https://elementary.io">elementary OS</p>
 </div>
 
