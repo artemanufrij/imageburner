@@ -1,94 +1,100 @@
-
 # ImageBurner
 # artemanufrij <>
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-22 22:08+0200\n"
-"PO-Revision-Date: 2017-10-22 23:14+6000\n"
-"Last-Translator: Juan Velandia <juankz.github.io>\n"
+"POT-Creation-Date: 2017-12-05 21:22+0100\n"
+"PO-Revision-Date: 2018-02-24 04:35-0600\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../src/MainWindow.vala:63 ../src/MainWindow.vala:85
+#: ../src/MainWindow.vala:67 ../src/MainWindow.vala:89
 msgid "Change"
 msgstr "Cambiar"
 
-#: ../src/MainWindow.vala:66 ../src/MainWindow.vala:303
+#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:332
 msgid "Open"
 msgstr "Abrir"
 
-#: ../src/MainWindow.vala:93 ../src/MainWindow.vala:231
+#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:260
 msgid "Device"
 msgstr "Dispositivo"
 
-#: ../src/MainWindow.vala:111
-msgid "Image Burner"
-msgstr "Grabador de Imagen"
+#: ../src/MainWindow.vala:120
+msgid "Calculating checksum…"
+msgstr "Calculando la suma de comprobación…"
 
-#: ../src/MainWindow.vala:135
+#: ../src/MainWindow.vala:148
 msgid "%s was written onto %s"
-msgstr "%s fue escrito en %s"
+msgstr "%s se escribió en %s"
 
-#: ../src/MainWindow.vala:178
+#: ../src/MainWindow.vala:186
+msgid "Image Burner"
+msgstr "Grabador de imágenes"
+
+#: ../src/MainWindow.vala:194
+msgid "Choose an algorithm"
+msgstr "Elija un algoritmo"
+
+#: ../src/MainWindow.vala:207
 msgid "Finished"
 msgstr "Finalizado"
 
-#: ../src/MainWindow.vala:203
+#: ../src/MainWindow.vala:232
 msgid "Image"
 msgstr "Imagen"
 
-#: ../src/MainWindow.vala:211
+#: ../src/MainWindow.vala:240
 msgid "Select Image"
-msgstr "Seleccionar Imagen"
+msgstr "Seleccione una imagen"
 
-#: ../src/MainWindow.vala:245
+#: ../src/MainWindow.vala:274
 msgid "Select Drive"
-msgstr "Select Dispositivo"
+msgstr "Seleccione una unidad"
 
-#: ../src/MainWindow.vala:253 ../src/MainWindow.vala:374
+#: ../src/MainWindow.vala:282 ../src/MainWindow.vala:404
 msgid "No removable devices found…"
-msgstr "Dispositivo extraíble no encontrado…"
+msgstr "No se encontró ningún dispositivo extraíble…"
 
-#: ../src/MainWindow.vala:278
+#: ../src/MainWindow.vala:307
 msgid "Flash"
-msgstr "Flash"
+msgstr "Instalar imagen"
 
-#: ../src/MainWindow.vala:286
+#: ../src/MainWindow.vala:315
 msgid "Write Image"
-msgstr "Escribir Imagen"
+msgstr "Escribir imagen"
 
-#: ../src/MainWindow.vala:305
+#: ../src/MainWindow.vala:334
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: ../src/MainWindow.vala:306
+#: ../src/MainWindow.vala:335
 msgid "_Open"
 msgstr "_Abrir"
 
-#: ../src/MainWindow.vala:309
+#: ../src/MainWindow.vala:338
 msgid "Image files"
-msgstr "Archivos de Imagen"
+msgstr "Archivos de imagen"
 
-#: ../src/MainWindow.vala:366
+#: ../src/MainWindow.vala:396
 msgid "Choose an image file…"
-msgstr "Elige un archivo de imagen…"
+msgstr "Elija un archivo de imagen…"
 
-#: ../src/MainWindow.vala:380
+#: ../src/MainWindow.vala:410
 msgid "No image file chosen…"
-msgstr "No se ha seleccionado archivo de imagen…"
+msgstr "No se seleccionó ninguna imagen…"
 
-#: ../src/MainWindow.vala:382
+#: ../src/MainWindow.vala:412
 msgid "No device chosen…"
-msgstr "No se ha seleccionado ningún dispositivo…"
+msgstr "No se seleccionó ningún dispositivo…"
 
-#: ../src/MainWindow.vala:384
+#: ../src/MainWindow.vala:414
 msgid "Ready!"
-msgstr "¡Listo!"
-
+msgstr "Listo."
