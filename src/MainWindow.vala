@@ -187,6 +187,7 @@ namespace Imageburner {
             headerbar = new Gtk.HeaderBar ();
             headerbar.show_close_button = true;
             headerbar.title = _("Image Burner");
+            headerbar.get_style_context ().add_class ("default-decoration");
             this.set_titlebar (headerbar);
 
             hash_chooser = new Gtk.ComboBoxText ();
