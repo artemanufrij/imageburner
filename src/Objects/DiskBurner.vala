@@ -143,7 +143,7 @@ namespace Imageburner {
         }
 
         private double get_current_size (string line) {
-            MatchInfo  match_info;
+            MatchInfo match_info;
             try {
                 Regex regex = new Regex ("^[0-9]*");
                 if (regex.match (line, 0, out match_info)) {
