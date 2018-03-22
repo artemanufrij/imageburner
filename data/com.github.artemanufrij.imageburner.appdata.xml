@@ -39,6 +39,11 @@
                 <ul>
                     <li>UI freeze while burning</li>
                 </ul>
+                <p>Translation:</p>
+                <ul>
+                    <li>Catalan (by Adolfo Jayme-Barrientos)</li>
+                    <li>Spanish (by Adolfo Jayme-Barrientos)</li>
+                </ul>
             </description>
         </release>
         <release version="0.1.12" date="2018-03-02">
