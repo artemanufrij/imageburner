@@ -35,6 +35,10 @@
                     <li>Simplified UI</li>
                     <li>Simplified dd command</li>
                 </ul>
+                <p>Fix:</p>
+                <ul>
+                    <li>UI freeze while burning</li>
+                </ul>
             </description>
         </release>
         <release version="0.1.12" date="2018-03-02">
