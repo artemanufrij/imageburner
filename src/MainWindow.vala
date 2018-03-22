@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017-2017 Artem Anufrij <artem.anufrij@live.de>
+ * Copyright (c) 2017-2018 Artem Anufrij <artem.anufrij@live.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -26,7 +26,6 @@
  */
 
 namespace Imageburner {
-
     public class MainWindow : Gtk.ApplicationWindow {
         public signal void calculate_begin ();
         public signal void calculate_finished (string result);
@@ -45,6 +44,8 @@ namespace Imageburner {
         Gtk.HeaderBar headerbar;
         Gtk.ComboBoxText hash_chooser;
         Gtk.Spinner hash_waiting;
+        Gtk.Spinner burning;
+        Gtk.Image start_logo;
 
         Granite.Widgets.Toast app_notification;
         Notification desktop_notification;
@@ -52,8 +53,6 @@ namespace Imageburner {
         Gtk.Button flash_start;
         Gtk.Grid flash_container;
         Gtk.Label flash_label;
-
-        Gtk.ProgressBar bar;
 
         File _selected_image = null;
         public File selected_image {
@@ -65,10 +64,10 @@ namespace Imageburner {
 
                 if (selected_image != null) {
                     this.set_image_label (selected_image.get_basename ());
-                    this.open_image.label = _("Change");
+                    this.open_image.label = _ ("Change");
                 } else {
                     this.set_image_label ("");
-                    this.open_image.label = _("Open");
+                    this.open_image.label = _ ("Open");
                 }
 
                 set_flash_label ();
@@ -87,7 +86,7 @@ namespace Imageburner {
 
                 if (selected_device != null) {
                     this.set_device_label (selected_device.drive.get_name ());
-                    this.select_device.label = _("Change");
+                    this.select_device.label = _ ("Change");
                     if (selected_device.is_card) {
                         this.device_logo.set_from_icon_name ("media-flash", Gtk.IconSize.DIALOG);
                     } else {
@@ -95,7 +94,7 @@ namespace Imageburner {
                     }
                 } else {
                     this.set_device_label ("");
-                    this.select_device.label = _("Device");
+                    this.select_device.label = _ ("Device");
                     this.device_logo.set_from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
                 }
 
@@ -113,16 +112,18 @@ namespace Imageburner {
         Imageburner.DiskBurner burner;
 
         public MainWindow () {
-            calculate_finished.connect ((result) => {
-                hash_waiting.active = false;
-                headerbar.title = result;
-                hash_chooser.sensitive = true;
-            });
-            calculate_begin.connect (() => {
-                hash_waiting.active = true;
-                headerbar.title = _("Calculating checksum…");
-                hash_chooser.sensitive = false;
-            });
+            calculate_finished.connect (
+                (result) => {
+                    hash_waiting.active = false;
+                    headerbar.title = result;
+                    hash_chooser.sensitive = true;
+                });
+            calculate_begin.connect (
+                () => {
+                    hash_waiting.active = true;
+                    headerbar.title = _ ("Calculating checksum…");
+                    hash_chooser.sensitive = false;
+                });
             this.resizable = false;
 
             this.build_ui ();
@@ -132,46 +133,39 @@ namespace Imageburner {
             devices.drive_disconnected.connect (device_removed);
 
             burner = DiskBurner.instance;
-            burner.begin.connect (() => {
-                bar.set_fraction (0);
-                bar.visible = true;
+            burner.begin.connect (
+                () => {
+                    image_container.sensitive = false;
+                    device_container.sensitive = false;
+                    flash_container.sensitive = false;
+                    hash_chooser.sensitive = false;
+                    burning.active = true;
+                    start_logo.opacity = 0;
+                });
+            burner.finished.connect (
+                () => {
+                    Idle.add (
+                        () => {
+                            image_container.sensitive = true;
+                            device_container.sensitive = true;
+                            flash_container.sensitive = true;
+                            hash_chooser.sensitive = true;
+                            burning.active = false;
+                            start_logo.opacity = 1;
 
-                image_container.sensitive = false;
-                device_container.sensitive = false;
-                flash_container.sensitive = false;
-                hash_chooser.sensitive = false;
-            });
-            burner.finished.connect (() => {
-                bar.visible = false;
-                image_container.sensitive = true;
-                device_container.sensitive = true;
-                flash_container.sensitive = true;
-                hash_chooser.sensitive = true;
+                            var message = _ ("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
 
-                var message = _("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
+                            if (is_active) {
+                                app_notification.title = message;
+                                app_notification.send_notification ();
+                            } else {
+                                desktop_notification.set_body (message);
+                                application.send_notification ("notify.app", desktop_notification);
+                            }
 
-                if (is_active) {
-                    app_notification.title = message;
-                    app_notification.send_notification ();
-                } else {
-                    desktop_notification.set_body (message);
-                    application.send_notification ("notify.app", desktop_notification);
-                }
-            });
-            burner.canceled.connect (() => {
-                bar.visible = false;
-                this.image_container.sensitive = true;
-                this.device_container.sensitive = true;
-                this.flash_container.sensitive = true;
-            });
-            burner.progress.connect ((val) => {
-                debug ("percent: %f", val);
-                bar.set_fraction (val);
-                bar.set_text ("%d %".printf ((int)(val * 100)));
-                while (Gtk.events_pending ()) {
-                    Gtk.main_iteration ();
-                }
-            });
+                            return false;
+                        });
+                });
 
             devices.init ();
             present ();
@@ -186,7 +180,7 @@ namespace Imageburner {
 
             headerbar = new Gtk.HeaderBar ();
             headerbar.show_close_button = true;
-            headerbar.title = _("Image Burner");
+            headerbar.title = _ ("Image Burner");
             headerbar.get_style_context ().add_class ("default-decoration");
             this.set_titlebar (headerbar);
 
@@ -195,12 +189,13 @@ namespace Imageburner {
             hash_chooser.append ("SHA256", "SHA256");
             hash_chooser.append ("SHA1", "SHA1");
             hash_chooser.active = 1;
-            hash_chooser.tooltip_text = _("Choose an algorithm");
-            hash_chooser.changed.connect (() => {
-                if (_selected_image != null) {
-                    get_checksum.begin ();
-                }
-            });
+            hash_chooser.tooltip_text = _ ("Choose an algorithm");
+            hash_chooser.changed.connect (
+                () => {
+                    if (_selected_image != null) {
+                        get_checksum.begin ();
+                    }
+                });
             headerbar.pack_end (hash_chooser);
 
             hash_waiting = new Gtk.Spinner ();
@@ -211,7 +206,7 @@ namespace Imageburner {
             overlay.add (content);
             overlay.add_overlay (app_notification);
 
-            desktop_notification = new Notification (_("Finished"));
+            desktop_notification = new Notification (_ ("Finished"));
 
             build_image_area ();
 
@@ -219,16 +214,8 @@ namespace Imageburner {
 
             build_flash_area ();
 
-            // PROGRESS BAR
-            bar = new Gtk.ProgressBar ();
-            bar.set_show_text (true);
-            content.attach (bar, 0, 2, 3, 1);
-
-            //this.add (content);
             this.add (overlay);
             this.show_all ();
-
-            bar.visible = false;
         }
 
         private void build_image_area () {
@@ -236,15 +223,15 @@ namespace Imageburner {
             image_container.row_spacing = 24;
             image_container.width_request = 180;
 
-            var title = new Gtk.Label (_("Image"));
-            title.get_style_context ().add_class("h2");
+            var title = new Gtk.Label (_ ("Image"));
+            title.get_style_context ().add_class ("h2");
             title.hexpand = true;
             image_container.attach (title, 0, 0, 1, 1);
 
             var image_logo = new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.DIALOG);
             image_container.attach (image_logo, 0, 1, 1, 1);
 
-            open_image = new Gtk.Button.with_label (_("Select Image"));
+            open_image = new Gtk.Button.with_label (_ ("Select Image"));
             open_image.clicked.connect (select_image);
             image_container.attach (open_image, 0, 3, 1, 1);
 
@@ -264,8 +251,8 @@ namespace Imageburner {
             device_container.row_spacing = 24;
             device_container.width_request = 180;
 
-            var title = new Gtk.Label (_("Device"));
-            title.get_style_context ().add_class("h2");
+            var title = new Gtk.Label (_ ("Device"));
+            title.get_style_context ().add_class ("h2");
             title.hexpand = true;
             device_container.attach (title, 0, 0, 1, 1);
 
@@ -278,15 +265,16 @@ namespace Imageburner {
             device_logo = new Gtk.Image.from_icon_name ("drive-removable-media-usb", Gtk.IconSize.DIALOG);
             device_container.attach (device_logo, 0, 1, 1, 1);
 
-            select_device = new Gtk.Button.with_label (_("Select Drive"));
+            select_device = new Gtk.Button.with_label (_ ("Select Drive"));
             select_device.valign = Gtk.Align.END;
             select_device.vexpand = true;
-            select_device.clicked.connect (() => {
-                device_popover.visible = !device_popover.visible;
-            });
+            select_device.clicked.connect (
+                () => {
+                    device_popover.visible = !device_popover.visible;
+                });
             device_container.attach (select_device, 0, 3, 1, 1);
 
-            device_name = new Gtk.Label (("<i>%s</i>").printf(_("No removable devices found…")));
+            device_name = new Gtk.Label (("<i>%s</i>").printf (_ ("No removable devices found…")));
             device_name.use_markup = true;
             device_container.attach (device_name, 0, 2, 1, 1);
 
@@ -294,12 +282,13 @@ namespace Imageburner {
             device_popover.position = Gtk.PositionType.TOP;
             device_popover.add (device_grid);
 
-            device_popover.show.connect (() => {
-                if (selected_device != null) {
-                    device_list.select_child (selected_device);
-                }
-                select_device.grab_focus ();
-            });
+            device_popover.show.connect (
+                () => {
+                    if (selected_device != null) {
+                        device_list.select_child (selected_device);
+                    }
+                    select_device.grab_focus ();
+                });
 
             device_grid.show_all ();
             content.attach (device_container, 1, 0, 1, 1);
@@ -311,38 +300,43 @@ namespace Imageburner {
             flash_container.sensitive = false;
             flash_container.width_request = 180;
 
-            var title = new Gtk.Label (_("Flash"));
-            title.get_style_context ().add_class("h2");
+            burning = new Gtk.Spinner ();
+            burning.active = false;
+
+            var title = new Gtk.Label (_ ("Flash"));
+            title.get_style_context ().add_class ("h2");
             title.hexpand = true;
-            flash_container.attach (title, 0, 0, 1, 1);
+            flash_container.attach (title, 0, 0);
 
-            var start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
-            flash_container.attach (start_logo, 0, 1, 1, 1);
+            start_logo = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.DIALOG);
 
-            flash_start = new Gtk.Button.with_label (_("Write Image"));
+            flash_container.attach (burning, 0, 1);
+            flash_container.attach (start_logo, 0, 1);
+
+            flash_start = new Gtk.Button.with_label (_ ("Write Image"));
             flash_start.valign = Gtk.Align.END;
             flash_start.vexpand = true;
-            flash_start.get_style_context ().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            flash_start.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             flash_start.clicked.connect (flash_image);
-            flash_container.attach (flash_start, 0, 3, 1, 1);
+            flash_container.attach (flash_start, 0, 3);
 
             flash_label = new Gtk.Label ("");
             flash_label.use_markup = true;
             set_flash_label ();
-            flash_container.attach (flash_label, 0, 2, 1, 1);
+            flash_container.attach (flash_label, 0, 2);
 
-            content.attach (flash_container, 2, 0, 1, 1);
+            content.attach (flash_container, 2, 0);
         }
 
         private void select_image () {
             var file = new Gtk.FileChooserDialog (
-                _("Open"), this,
+                _ ("Open"), this,
                 Gtk.FileChooserAction.OPEN,
-                _("_Cancel"), Gtk.ResponseType.CANCEL,
-                _("_Open"), Gtk.ResponseType.ACCEPT);
+                _ ("_Cancel"), Gtk.ResponseType.CANCEL,
+                _ ("_Open"), Gtk.ResponseType.ACCEPT);
 
             var image_filter = new Gtk.FileFilter ();
-            image_filter.set_filter_name (_("Image files"));
+            image_filter.set_filter_name (_ ("Image files"));
             image_filter.add_mime_type ("application/x-raw-disk-image");
 
             file.add_filter (image_filter);
@@ -350,26 +344,26 @@ namespace Imageburner {
             if (file.run () == Gtk.ResponseType.ACCEPT) {
                 selected_image = file.get_file ();
                 debug (file.get_filename ());
-                get_checksum ();
+                get_checksum.begin ();
             }
 
-            file.destroy();
+            file.destroy ();
         }
 
         private void select_drive (Gtk.FlowBoxChild item) {
-            debug ("Selected: %s", (item as Imageburner.Device).drive.get_name ());
+                debug ("Selected: %s", (item as Imageburner.Device).drive.get_name ());
             this.selected_device = item as Imageburner.Device;
         }
 
         private void flash_image () {
             if (!burner.is_running) {
                 selected_device.umount_all_volumes ();
-                burner.flash_image.begin(selected_image, selected_device.drive);
+                burner.flash_image (selected_image, selected_device.drive);
             }
         }
 
         private void device_added (GLib.Drive drive) {
-            debug ("Add device into list");
+                debug ("Add device into list");
             var item = new Imageburner.Device (drive);
             this.selected_device = item;
             this.device_list.add (item);
@@ -379,7 +373,7 @@ namespace Imageburner {
         }
 
         private void device_removed (GLib.Drive drive) {
-            debug ("Remove device from list");
+                debug ("Remove device from list");
             foreach (var child in this.device_list.get_children ()) {
                 if ((child as Device).drive == drive) {
                     this.device_list.remove (child);
@@ -400,7 +394,7 @@ namespace Imageburner {
             if (text != "") {
                 this.image_name.label = text;
             } else {
-                this.image_name.label = ("<i>%s</i>").printf(_("Choose an image file…"));
+                this.image_name.label = ("<i>%s</i>").printf (_ ("Choose an image file…"));
             }
         }
 
@@ -408,37 +402,38 @@ namespace Imageburner {
             if (text != "") {
                 this.device_name.label = text;
             } else {
-                this.device_name.label = ("<i>%s</i>").printf(_("No removable devices found…"));
+                this.device_name.label = ("<i>%s</i>").printf (_ ("No removable devices found…"));
             }
         }
 
         private void set_flash_label () {
             if (selected_image == null) {
-                this.flash_label.label = ("<i>%s</i>").printf(_("No image file chosen…"));
+                this.flash_label.label = ("<i>%s</i>").printf (_ ("No image file chosen…"));
             } else if (selected_device == null) {
-                this.flash_label.label = ("<i>%s</i>").printf(_("No device chosen…"));
+                this.flash_label.label = ("<i>%s</i>").printf (_ ("No device chosen…"));
             } else {
-                this.flash_label.label = _("Ready!");
+                this.flash_label.label = _ ("Ready!");
             }
         }
 
         private async void get_checksum () {
             calculate_begin ();
-            checksum_thread.begin ((obj, res) => {
-                calculate_finished (checksum_thread.end (res));
-            });
+            checksum_thread.begin (
+                (obj, res) => {
+                    calculate_finished (checksum_thread.end (res));
+                });
         }
 
         private async string checksum_thread () {
             SourceFunc callback = checksum_thread.callback;
             ChecksumType checksumtype = ChecksumType.SHA256;
             switch (hash_chooser.active_id) {
-                case "MD5":
-                    checksumtype = ChecksumType.MD5;
-                    break;
-                case "SHA1":
-                    checksumtype = ChecksumType.SHA1;
-                    break;
+            case "MD5" :
+                checksumtype = ChecksumType.MD5;
+                break;
+            case "SHA1" :
+                checksumtype = ChecksumType.SHA1;
+                break;
             }
             string digest = "";
 

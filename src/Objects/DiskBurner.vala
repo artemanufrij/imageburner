@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017-2017 Artem Anufrij <artem.anufrij@live.de>
+ * Copyright (c) 2017-2018 Artem Anufrij <artem.anufrij@live.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -26,133 +26,66 @@
  */
 
 namespace Imageburner {
-
     public class DiskBurner : GLib.Object {
+        public signal void begin ();
+        public signal void finished ();
 
-     	static DiskBurner _instance = null;
+        static DiskBurner _instance = null;
         public static DiskBurner instance {
             get {
-                if (_instance == null)
+                if (_instance == null) {
                     _instance = new DiskBurner ();
+                }
                 return _instance;
             }
         }
 
-        private DiskBurner () {}
+        private DiskBurner () {
+        }
 
         construct {
-            this.is_running = false;
-            this.begin.connect (() => {
-                this.is_running = true;
-                debug ("begin");
-            });
-            this.finished.connect (() => {
-                this.is_running = false;
-                debug ("finished");
-            });
-            this.canceled.connect (() => {
-                this.is_running = false;
-                debug ("canceled");
-            });
+            is_running = false;
+            begin.connect (
+                () => {
+                    is_running = true;
+                });
+            finished.connect (
+                () => {
+                    is_running = false;
+                });
         }
 
-        public bool is_running {get;set;}
+        public bool is_running { get; private set; }
 
-        public signal void begin ();
-        public signal void finished ();
-        public signal void canceled ();
-        public signal void progress (double percent);
-
-        File current_image;
-        uint64 image_size;
-        int last_progress = 0;
-        Pid child_pid;
-
-        public async void flash_image (File image, Drive drive) {
-            current_image = image;
-
-            try {
-                image_size = current_image.query_info ("standard::size", 0).get_size ();
-            } catch (GLib.Error e) {
-                stdout.printf ("GLibError: %s\n", e.message);
-                image_size = 0;
-            }
-
-            string if_arg = "if=" + current_image.get_path ();
-            string of_arg = "of=" + drive.get_identifier ("unix-device");
-
-            debug (if_arg);
-            debug (of_arg);
-
-            string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=1M", "conv=sync", "status=progress"};
-
-            int standard_error = 0;
-            try {
-                Process.spawn_async_with_pipes ("/",
-                    spawn_args,
-                    null,
-                    SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
-                    null,
-                    out child_pid,
-                    null,
-                    null,
-                    out standard_error);
-            } catch (GLib.SpawnError e) {
-                stdout.printf ("GLibSpawnError: %s\n", e.message);
-            }
-
-            IOChannel error = new IOChannel.unix_new (standard_error);
-            error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
-                if (condition == IOCondition.HUP) {
-                    return false;
-                }
-
-                try {
-                    string line;
-                    channel.read_line (out line, null, null);
-                    double current_size = get_current_size (line);
-                    int percent = (int)(current_size * 100 / image_size);
-                    if (percent != last_progress) {
-                        last_progress = percent;
-                        progress (((double)percent) / 100);
-                    }
-                } catch (IOChannelError e) {
-                    stdout.printf ("IOChannelError: %s\n", e.message);
-                    return false;
-                } catch (ConvertError e) {
-                    stdout.printf ("ConvertError: %s\n", e.message);
-                    return false;
-                }
-
-                return true;
-            });
-
-            ChildWatch.add (child_pid, (pid, status) => {
-                Process.close_pid (pid);
-
-                if (last_progress > 0) {
-                    finished ();
-                } else {
-                    canceled ();
-                }
-
-                last_progress = 0;
-            });
-
+        public void flash_image (File image, Drive drive) {
             begin ();
-        }
 
-        private double get_current_size (string line) {
-            MatchInfo match_info;
-            try {
-                Regex regex = new Regex ("^[0-9]*");
-                if (regex.match (line, 0, out match_info)) {
-                    return double.parse (match_info.fetch_all () [0]);
-                }
-            } catch (GLib.RegexError e) {
-                stdout.printf ("GLibRegexError: %s\n", e.message);
-            }
-            return 0;
+            new Thread<void*> (
+                "flash_image",
+                () => {
+                    string if_arg = "if=" + image.get_path ();
+                    string of_arg = "of=" + drive.get_identifier ("unix-device");
+
+                    string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=4M", "conv=sync", "status=progress"};
+                    string[] spawn_env = Environ.get ();
+
+                    try {
+                        Process.spawn_sync (
+                            "/",
+                            spawn_args,
+                            spawn_env,
+                            SpawnFlags.SEARCH_PATH,
+                            null,
+                            null,
+                            null,
+                            null);
+                    } catch (GLib.SpawnError e) {
+                        warning ("GLibSpawnError: %s\n", e.message);
+                    }
+
+                    finished ();
+                    return null;
+                });
         }
     }
 }

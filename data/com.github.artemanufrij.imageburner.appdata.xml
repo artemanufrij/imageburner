@@ -28,6 +28,15 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="0.1.13" date="2018-03-25">
+            <description>
+                <p>Improved:</p>
+                <ul>
+                    <li>Simplified UI</li>
+                    <li>Simplified dd command</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.1.12" date="2018-03-02">
             <description>
                 <p>Fix:</p>
