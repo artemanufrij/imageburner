@@ -67,7 +67,7 @@ msgstr "Nie znaleziono urządzeń przenośnych…"
 
 #: ../src/MainWindow.vala:307
 msgid "Flash"
-msgstr "Flashuj"
+msgstr "Zapis"
 
 #: ../src/MainWindow.vala:315
 msgid "Write Image"
