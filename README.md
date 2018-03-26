@@ -16,13 +16,12 @@
   <img src="Screenshot.png"/>
 </p>
 
-## Installation
-You'll need the following dependencies:
-* cmake
-* cmake-elementary
-* debhelper
-* libgranite-dev
-* valac
+## Install from Github.
+
+As first you need elementary SDK
+```
+sudo apt install elementary-sdk
+```
 
 Clone repository and change directory
 ```
