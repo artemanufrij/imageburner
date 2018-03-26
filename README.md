@@ -23,3 +23,22 @@ You'll need the following dependencies:
 * debhelper
 * libgranite-dev
 * valac
+
+Clone repository and change directory
+```
+git clone https://github.com/artemanufrij/imageburner.git
+cd imageburner
+```
+
+Create **build** folder, compile and start application
+```
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+```
+
+Install and start Imageburner on your system
+```
+sudo make install
+com.github.artemanufrij.imageburner
