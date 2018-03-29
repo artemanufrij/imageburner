@@ -33,6 +33,7 @@ namespace Imageburner {
         Gtk.Label title;
 
         public GLib.Drive drive { get; private set; }
+        public string unix_device { get; private set; }
 
         construct {
             content = new Gtk.Grid ();
@@ -43,6 +44,7 @@ namespace Imageburner {
 
         public Device (GLib.Drive d) {
             this.drive = d;
+            this.unix_device = d.get_identifier ("unix-device");
 
             icon = get_medium_icon ();
             icon.margin = 6;
@@ -55,15 +57,11 @@ namespace Imageburner {
         // PROPERTIES
         public bool is_card {
             get {
-                string unix_device = drive.get_identifier ("unix-device");
-                return unix_device.index_of ("/dev/mmc") == 0;
+                return unix_device.has_prefix ("/dev/mmc");
             }
         }
 
         // METHODS
-        public string get_unix_device () {
-            return drive.get_identifier ("unix-device");
-        }
 
         public Gtk.Image get_medium_icon () {
             if (is_card) {

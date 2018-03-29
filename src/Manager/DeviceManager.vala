@@ -48,15 +48,32 @@ namespace Imageburner {
         construct {
             monitor = GLib.VolumeMonitor.get ();
 
-            monitor.drive_connected.connect ((drive) => {
-                if (valid_device (drive)) {
-                    drive_connected (drive);
-                }
-            });
+            monitor.drive_connected.connect (
+                (drive) => {
+                    stdout.printf ("Drive changed: %s\n", drive.get_name ());
+                    if (valid_device (drive)) {
+                        drive_connected (drive);
+                    }
+                });
 
-            monitor.drive_disconnected.connect ((drive) => {
-                drive_disconnected (drive);
-            });
+            monitor.drive_disconnected.connect (
+                (drive) => {
+                    drive_disconnected (drive);
+                });
+
+            monitor.volume_added.connect (
+                (volume) => {
+                    if (valid_device (volume.get_drive ())) {
+                        drive_connected (volume.get_drive ());
+                    }
+                });
+
+            monitor.volume_removed.connect (
+                (volume) => {
+                    if (volume.get_drive () != null) {
+                        drive_disconnected (volume.get_drive ());
+                    }
+                });
         }
 
         public void init () {
@@ -69,8 +86,9 @@ namespace Imageburner {
         }
 
         private bool valid_device (Drive drive) {
-            string? unix_device = drive.get_identifier ("unix-device");
-            return (drive.is_media_removable () || drive.can_stop ()) && (unix_device != null && (unix_device.index_of ("/dev/sd") == 0 || unix_device.index_of ("/dev/mmc") == 0));
+            string ? unix_device = drive.get_identifier ("unix-device");
+            stdout.printf ("%s removable: %s; can stop: %s\n", unix_device, drive.is_media_removable ().to_string (), drive.can_stop ().to_string ());
+            return (drive.is_media_removable () || drive.can_stop ()) && drive.has_media () && (unix_device != null && (unix_device.has_prefix ("/dev/sd") || unix_device.has_prefix ("/dev/mmc") || unix_device.has_prefix ("/dev/nvm")));
         }
     }
 }

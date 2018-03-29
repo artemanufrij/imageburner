@@ -363,7 +363,12 @@ namespace Imageburner {
         }
 
         private void device_added (GLib.Drive drive) {
-                debug ("Add device into list");
+            foreach (var child in this.device_list.get_children ()) {
+                if ((child as Device).unix_device == drive.get_identifier ("unix-device")) {
+                    return;
+                }
+            }
+
             var item = new Imageburner.Device (drive);
             this.selected_device = item;
             this.device_list.add (item);
@@ -376,7 +381,7 @@ namespace Imageburner {
                 debug ("Remove device from list");
             foreach (var child in this.device_list.get_children ()) {
                 if ((child as Device).drive == drive) {
-                    this.device_list.remove (child);
+                    child.destroy ();
                 }
             }
             if (selected_device != null && selected_device.drive == drive) {
