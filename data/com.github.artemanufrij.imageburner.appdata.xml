@@ -28,6 +28,14 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="0.1.15" date="2018-03-30">
+            <description>
+                <p>Translation:</p>
+                <ul>
+                    <li>Polish (by DanyGee)</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.1.14" date="2018-03-25">
             <description>
                 <p>Improved:</p>
