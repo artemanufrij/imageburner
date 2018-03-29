@@ -16,10 +16,28 @@
   <img src="Screenshot.png"/>
 </p>
 
-## Installation
-You'll need the following dependencies:
-* cmake
-* cmake-elementary
-* debhelper
-* libgranite-dev
-* valac
+## Install from Github.
+
+As first you need elementary SDK
+```
+sudo apt install elementary-sdk
+```
+
+Clone repository and change directory
+```
+git clone https://github.com/artemanufrij/imageburner.git
+cd imageburner
+```
+
+Create **build** folder, compile and start application
+```
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+```
+
+Install and start Imageburner on your system
+```
+sudo make install
+com.github.artemanufrij.imageburner
