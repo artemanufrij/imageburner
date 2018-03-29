@@ -50,7 +50,6 @@ namespace Imageburner {
 
             monitor.drive_connected.connect (
                 (drive) => {
-                    stdout.printf ("Drive changed: %s\n", drive.get_name ());
                     if (valid_device (drive)) {
                         drive_connected (drive);
                     }
