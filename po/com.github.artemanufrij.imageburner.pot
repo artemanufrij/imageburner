@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 21:22+0100\n"
+"POT-Creation-Date: 2018-04-01 13:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,23 +21,31 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:332
+#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:335
 msgid "Open"
 msgstr ""
 
-#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:260
+#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:256
 msgid "Device"
 msgstr ""
 
-#: ../src/MainWindow.vala:120
+#: ../src/MainWindow.vala:124
 msgid "Calculating checksum…"
 msgstr ""
 
-#: ../src/MainWindow.vala:148
+#: ../src/MainWindow.vala:144
+msgid "please wait…"
+msgstr ""
+
+#: ../src/MainWindow.vala:156 ../src/MainWindow.vala:422
+msgid "Ready!"
+msgstr ""
+
+#: ../src/MainWindow.vala:158
 msgid "%s was written onto %s"
 msgstr ""
 
-#: ../src/MainWindow.vala:186
+#: ../src/MainWindow.vala:185
 msgid "Image Burner"
 msgstr ""
 
@@ -45,58 +53,54 @@ msgstr ""
 msgid "Choose an algorithm"
 msgstr ""
 
-#: ../src/MainWindow.vala:207
+#: ../src/MainWindow.vala:211
 msgid "Finished"
 msgstr ""
 
-#: ../src/MainWindow.vala:232
+#: ../src/MainWindow.vala:228
 msgid "Image"
 msgstr ""
 
-#: ../src/MainWindow.vala:240
+#: ../src/MainWindow.vala:236
 msgid "Select Image"
 msgstr ""
 
-#: ../src/MainWindow.vala:274
+#: ../src/MainWindow.vala:270
 msgid "Select Drive"
 msgstr ""
 
-#: ../src/MainWindow.vala:282 ../src/MainWindow.vala:404
+#: ../src/MainWindow.vala:279 ../src/MainWindow.vala:412
 msgid "No removable devices found…"
 msgstr ""
 
-#: ../src/MainWindow.vala:307
+#: ../src/MainWindow.vala:308
 msgid "Flash"
 msgstr ""
 
-#: ../src/MainWindow.vala:315
+#: ../src/MainWindow.vala:318
 msgid "Write Image"
 msgstr ""
 
-#: ../src/MainWindow.vala:334
+#: ../src/MainWindow.vala:337
 msgid "_Cancel"
 msgstr ""
 
-#: ../src/MainWindow.vala:335
+#: ../src/MainWindow.vala:338
 msgid "_Open"
 msgstr ""
 
-#: ../src/MainWindow.vala:338
+#: ../src/MainWindow.vala:341
 msgid "Image files"
 msgstr ""
 
-#: ../src/MainWindow.vala:396
+#: ../src/MainWindow.vala:404
 msgid "Choose an image file…"
 msgstr ""
 
-#: ../src/MainWindow.vala:410
+#: ../src/MainWindow.vala:418
 msgid "No image file chosen…"
 msgstr ""
 
-#: ../src/MainWindow.vala:412
+#: ../src/MainWindow.vala:420
 msgid "No device chosen…"
-msgstr ""
-
-#: ../src/MainWindow.vala:414
-msgid "Ready!"
 msgstr ""
