@@ -66,7 +66,7 @@ namespace Imageburner {
                     string if_arg = "if=" + image.get_path ();
                     string of_arg = "of=" + drive.get_identifier ("unix-device");
 
-                    string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=4M", "conv=sync", "status=progress"};
+                    string[] spawn_args = {"pkexec", "dd", if_arg, of_arg, "bs=4M"};
                     string[] spawn_env = Environ.get ();
 
                     try {

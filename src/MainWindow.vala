@@ -141,6 +141,7 @@ namespace Imageburner {
                     hash_chooser.sensitive = false;
                     burning.active = true;
                     start_logo.opacity = 0;
+                    flash_label.label = _ ("please wait…");
                 });
             burner.finished.connect (
                 () => {
@@ -152,6 +153,7 @@ namespace Imageburner {
                             hash_chooser.sensitive = true;
                             burning.active = false;
                             start_logo.opacity = 1;
+                            flash_label.label = _ ("Ready!");
 
                             var message = _ ("%s was written onto %s").printf (selected_image.get_basename (), selected_device.drive.get_name ());
 
