@@ -1,0 +1,5 @@
+src/Widgets/Device.vala
+src/Application.vala
+src/MainWindow.vala
+src/Manager/DeviceManager.vala
+src/Objects/DiskBurner.vala
