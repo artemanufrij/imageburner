@@ -5,8 +5,7 @@ Maintainer: Artem Anufrij <artem.anufrij@live.de>
 Build-Depends: meson,
                debhelper (>= 9),
                libgranite-dev,
-               valac (>= 0.26),
-               libgtk-3-devs
+               valac (>= 0.26)
 Standards-Version: 3.9.3
 
 Package: com.github.artemanufrij.imageburner
