@@ -28,6 +28,19 @@
         </screenshot>
     </screenshots>
     <releases>
+        <release version="1.0.0" date="2018-07-24">
+            <description>
+                <p>New:</p>
+                <ul>
+                    <li>Switch to meson (Thanks to Daniel Lewan)</li>
+                </ul>
+                <p>Translation:</p>
+                <ul>
+                    <li>Lithuanian (by welaq)</li>
+                    <li>Dutch (by Heimen Stoffels)</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.2.0" date="2018-07-24">
             <description>
                 Prepare for JUNO
