@@ -2,11 +2,12 @@ Source: com.github.artemanufrij.imageburner
 Section: x11
 Priority: optional
 Maintainer: Artem Anufrij <artem.anufrij@live.de>
-Build-Depends: cmake (>= 2.8),
-               cmake-elementary,
+Build-Depends: meson,
                debhelper (>= 9),
                libgranite-dev,
-               valac (>= 0.26)
+               valac (>= 0.26),
+               libgranite-dev,
+               libgtk-3-devs
 Standards-Version: 3.9.3
 
 Package: com.github.artemanufrij.imageburner

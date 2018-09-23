@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 22:08+0200\n"
+"POT-Creation-Date: 2018-09-22 19:18+0200\n"
 "PO-Revision-Date: 2017-08-05 08:40+0200\n"
 "Last-Translator: Artem Anufrij <artem.anufrij@live.de>\n"
 "Language-Team: Deutsch <artem.anufrij@live.de>\n"
@@ -19,78 +19,92 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: ../src/MainWindow.vala:63 ../src/MainWindow.vala:85
+#: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
 msgstr "Ändern"
 
-#: ../src/MainWindow.vala:66 ../src/MainWindow.vala:303
+#: src/MainWindow.vala:70 src/MainWindow.vala:335
 msgid "Open"
 msgstr "Öffnen"
 
-#: ../src/MainWindow.vala:93 ../src/MainWindow.vala:231
+#: src/MainWindow.vala:97 src/MainWindow.vala:256
 msgid "Device"
 msgstr "Datenträger"
 
-#: ../src/MainWindow.vala:111
-msgid "Image Burner"
-msgstr "Image Burner"
+#: src/MainWindow.vala:124
+msgid "Calculating checksum…"
+msgstr ""
 
-#: ../src/MainWindow.vala:135
+#: src/MainWindow.vala:144
+msgid "please wait…"
+msgstr ""
+
+#: src/MainWindow.vala:156 src/MainWindow.vala:422
+msgid "Ready!"
+msgstr "Bereit!"
+
+#: src/MainWindow.vala:158
+#, c-format
 msgid "%s was written onto %s"
 msgstr "%s wurde auf %s geschrieben"
 
-#: ../src/MainWindow.vala:178
+#: src/MainWindow.vala:185
+msgid "Image Burner"
+msgstr "Image Burner"
+
+#: src/MainWindow.vala:194
+#, fuzzy
+msgid "Choose an algorithm"
+msgstr "Abbilddatei auswählen…"
+
+#: src/MainWindow.vala:211
 msgid "Finished"
 msgstr "Abgeschlossen"
 
-#: ../src/MainWindow.vala:203
+#: src/MainWindow.vala:228
 msgid "Image"
 msgstr "Abbild"
 
-#: ../src/MainWindow.vala:211
+#: src/MainWindow.vala:236
 msgid "Select Image"
 msgstr "Abbild auswählen"
 
-#: ../src/MainWindow.vala:245
+#: src/MainWindow.vala:270
 msgid "Select Drive"
 msgstr "Datenträger auswählen"
 
-#: ../src/MainWindow.vala:253 ../src/MainWindow.vala:374
+#: src/MainWindow.vala:279 src/MainWindow.vala:412
 msgid "No removable devices found…"
 msgstr "Keine Wechseldatenträger gefunden…"
 
-#: ../src/MainWindow.vala:278
+#: src/MainWindow.vala:308
 msgid "Flash"
 msgstr "Erstellen"
 
-#: ../src/MainWindow.vala:286
+#: src/MainWindow.vala:318
 msgid "Write Image"
 msgstr "Vorgang starten"
 
-#: ../src/MainWindow.vala:305
+#: src/MainWindow.vala:337
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
-#: ../src/MainWindow.vala:306
+#: src/MainWindow.vala:338
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: ../src/MainWindow.vala:309
+#: src/MainWindow.vala:341
 msgid "Image files"
 msgstr "Abbilddateien"
 
-#: ../src/MainWindow.vala:366
+#: src/MainWindow.vala:404
 msgid "Choose an image file…"
 msgstr "Abbilddatei auswählen…"
 
-#: ../src/MainWindow.vala:380
+#: src/MainWindow.vala:418
 msgid "No image file chosen…"
 msgstr "Kein Abbild ausgewählt…"
 
-#: ../src/MainWindow.vala:382
+#: src/MainWindow.vala:420
 msgid "No device chosen…"
 msgstr "Kein Datenträger ausgewählt…"
-
-#: ../src/MainWindow.vala:384
-msgid "Ready!"
-msgstr "Bereit!"

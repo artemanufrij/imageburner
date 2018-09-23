@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 21:22+0100\n"
+"POT-Creation-Date: 2018-09-22 19:18+0200\n"
 "PO-Revision-Date: 2018-01-02 15:57+0400\n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -18,86 +18,91 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1: 2;\n"
 "X-Generator: Poedit 2.0.4\n"
 
-#: ../src/MainWindow.vala:67 ../src/MainWindow.vala:89
+#: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
 msgstr "Изменить"
 
-#: ../src/MainWindow.vala:70 ../src/MainWindow.vala:332
+#: src/MainWindow.vala:70 src/MainWindow.vala:335
 msgid "Open"
 msgstr "Открыть"
 
-#: ../src/MainWindow.vala:97 ../src/MainWindow.vala:260
+#: src/MainWindow.vala:97 src/MainWindow.vala:256
 msgid "Device"
 msgstr "Устройство"
 
-#: ../src/MainWindow.vala:120
+#: src/MainWindow.vala:124
 msgid "Calculating checksum…"
 msgstr "Вычисление контрольной суммы..."
 
-#: ../src/MainWindow.vala:148
+#: src/MainWindow.vala:144
+msgid "please wait…"
+msgstr ""
+
+#: src/MainWindow.vala:156 src/MainWindow.vala:422
+msgid "Ready!"
+msgstr "Всё верно!"
+
+#: src/MainWindow.vala:158
+#, c-format
 msgid "%s was written onto %s"
 msgstr "%s было записано на %s"
 
-#: ../src/MainWindow.vala:186
+#: src/MainWindow.vala:185
 msgid "Image Burner"
 msgstr "Image Burner"
 
-#: ../src/MainWindow.vala:194
+#: src/MainWindow.vala:194
 msgid "Choose an algorithm"
 msgstr "Выберите алгоритм"
 
-#: ../src/MainWindow.vala:207
+#: src/MainWindow.vala:211
 msgid "Finished"
 msgstr "Завершено"
 
-#: ../src/MainWindow.vala:232
+#: src/MainWindow.vala:228
 msgid "Image"
 msgstr "Образ"
 
-#: ../src/MainWindow.vala:240
+#: src/MainWindow.vala:236
 msgid "Select Image"
 msgstr "Выбрать образ"
 
-#: ../src/MainWindow.vala:274
+#: src/MainWindow.vala:270
 msgid "Select Drive"
 msgstr "Выбрать диск"
 
-#: ../src/MainWindow.vala:282 ../src/MainWindow.vala:404
+#: src/MainWindow.vala:279 src/MainWindow.vala:412
 msgid "No removable devices found…"
 msgstr "Съемные устройства не найдены..."
 
-#: ../src/MainWindow.vala:307
+#: src/MainWindow.vala:308
 msgid "Flash"
 msgstr "Запись"
 
-#: ../src/MainWindow.vala:315
+#: src/MainWindow.vala:318
 msgid "Write Image"
 msgstr "Создать образ"
 
-#: ../src/MainWindow.vala:334
+#: src/MainWindow.vala:337
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: ../src/MainWindow.vala:335
+#: src/MainWindow.vala:338
 msgid "_Open"
 msgstr "_Открыть"
 
-#: ../src/MainWindow.vala:338
+#: src/MainWindow.vala:341
 msgid "Image files"
 msgstr "Файл образа"
 
-#: ../src/MainWindow.vala:396
+#: src/MainWindow.vala:404
 msgid "Choose an image file…"
 msgstr "Выберите файл образа..."
 
-#: ../src/MainWindow.vala:410
+#: src/MainWindow.vala:418
 msgid "No image file chosen…"
 msgstr "Не выбран файл образа..."
 
-#: ../src/MainWindow.vala:412
+#: src/MainWindow.vala:420
 msgid "No device chosen…"
 msgstr "Не выбрано устройство..."
-
-#: ../src/MainWindow.vala:414
-msgid "Ready!"
-msgstr "Всё верно!"
