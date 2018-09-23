@@ -6,7 +6,6 @@ Build-Depends: meson,
                debhelper (>= 9),
                libgranite-dev,
                valac (>= 0.26),
-               libgranite-dev,
                libgtk-3-devs
 Standards-Version: 3.9.3
 
