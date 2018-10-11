@@ -7,7 +7,7 @@
     <name>Image Burner</name>
     <summary>Inspired by Etcher's UI</summary>
     <description>
-        <p>Burn images (.iso, .img) to removable devices like usb disk or sd card</p>
+        <p>Burn images (as example: .iso or .img) to removable devices like usb disk or sd card</p>
     </description>
     <categories>
         <category>System</category>
