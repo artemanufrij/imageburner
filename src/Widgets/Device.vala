@@ -49,7 +49,7 @@ namespace Imageburner {
             icon = get_medium_icon ();
             icon.margin = 6;
             title = new Gtk.Label (d.get_name ());
-            title.margin_right = 6;
+            title.margin_end = 6;
             content.attach (icon, 0, 0, 1, 1);
             content.attach (title, 1, 0, 1, 1);
         }
