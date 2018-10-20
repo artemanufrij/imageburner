@@ -28,7 +28,15 @@
         </screenshot>
     </screenshots>
     <releases>
-        <release version="1.0.0" date="2018-07-24">
+        <release version="1.0.1" date="2018-10-24">
+            <description>
+                <p>Translation:</p>
+                <ul>
+                    <li>Portuguese Brazilian (by leavitals)</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.0.0" date="2018-09-24">
             <description>
                 <p>New:</p>
                 <ul>
