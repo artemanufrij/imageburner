@@ -32,7 +32,7 @@ msgstr "デバイス"
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr "チェックサムの計算中…"
+msgstr "チェックサムを計算しています…"
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
@@ -40,7 +40,7 @@ msgstr "お待ちください…"
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:422
 msgid "Ready!"
-msgstr "準備完了!"
+msgstr "準備が完了しました！"
 
 #: src/MainWindow.vala:158
 #, c-format
@@ -53,11 +53,11 @@ msgstr "イメージバーナー"
 
 #: src/MainWindow.vala:194
 msgid "Choose an algorithm"
-msgstr "アルゴリズムを選択する"
+msgstr "アルゴリズムを選択します"
 
 #: src/MainWindow.vala:211
 msgid "Finished"
-msgstr "完成した"
+msgstr "完了しました"
 
 #: src/MainWindow.vala:228
 msgid "Image"
@@ -69,7 +69,7 @@ msgstr "イメージを選択"
 
 #: src/MainWindow.vala:270
 msgid "Select Drive"
-msgstr "ドライブの選択"
+msgstr "ドライブを選択"
 
 #: src/MainWindow.vala:279 src/MainWindow.vala:412
 msgid "No removable devices found…"
@@ -81,7 +81,7 @@ msgstr "フラッシュ"
 
 #: src/MainWindow.vala:318
 msgid "Write Image"
-msgstr "イメージを書き込みます"
+msgstr "イメージを書き込む"
 
 #: src/MainWindow.vala:337
 msgid "_Cancel"
@@ -101,8 +101,8 @@ msgstr "イメージファイルを選択してください…"
 
 #: src/MainWindow.vala:418
 msgid "No image file chosen…"
-msgstr "イメージファイルファイルを選択していません…"
+msgstr "イメージファイルが選択されていません…"
 
 #: src/MainWindow.vala:420
 msgid "No device chosen…"
-msgstr "選択したデバイスはありません…"
+msgstr "選択されたデバイスはありません…"
