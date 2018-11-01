@@ -34,6 +34,11 @@
                 <ul>
                     <li>Missing contractor (thanks to Torikul Habib)</li>
                 </ul>
+                <p>Translation:</p>
+                <ul>
+                    <li>Russian (by Camellan)</li>
+                    <li>Japanese (by Ciarán Ainsworth and Ryo Nakano)</li>
+                </ul>
             </description>
         </release>
         <release version="1.0.1" date="2018-10-24">
