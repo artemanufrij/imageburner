@@ -1,6 +1,7 @@
 [Contractor Entry]
 Name=Write onto removable device
 Name[ru]=Записать на съемный носитель
+Name[de]=Auf Wechseldatenträger schreiben
 Icon=com.github.artemanufrij.imageburner
 Description=Burn images (.iso, .img) to removable devices like usb disk or sd card
 Exec=com.github.artemanufrij.imageburner %U
