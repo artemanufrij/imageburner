@@ -19,6 +19,10 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'icons/hicolor/scalable/apps')
 )
 
+install_data(
+    meson.project_name() + '.contract',
+    install_dir: join_paths(get_option('datadir'), 'contractor')
+)
 
 install_data(
     meson.project_name() + '.desktop',
