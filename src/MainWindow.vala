@@ -422,7 +422,7 @@ namespace Imageburner {
             }
         }
 
-        private async void get_checksum () {
+        public async void get_checksum () {
             calculate_begin ();
             checksum_thread.begin (
                 (obj, res) => {

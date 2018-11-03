@@ -63,6 +63,7 @@ namespace Imageburner {
             activate ();
             if (files [0].query_exists ()) {
                 mainwindow.selected_image = files [0];
+                mainwindow.get_checksum.begin ();
             }
         }
     }
