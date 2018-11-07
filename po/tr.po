@@ -80,7 +80,7 @@ msgstr ""
 
 #: src/MainWindow.vala:318
 msgid "Write Image"
-msgstr "İmaj yaz"
+msgstr "İmajı yaz"
 
 #: src/MainWindow.vala:337
 msgid "_Cancel"
