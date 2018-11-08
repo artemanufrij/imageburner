@@ -12,7 +12,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: İbrahim Kapramcı <ibrakap@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: Turkish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,7 +44,7 @@ msgstr "Hazır!"
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr ""
+msgstr "%s %s üzerine yazıldı"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
@@ -76,7 +76,7 @@ msgstr "Çıkarılabilir cihaz bulunamadı…"
 
 #: src/MainWindow.vala:308
 msgid "Flash"
-msgstr ""
+msgstr "Yaz"
 
 #: src/MainWindow.vala:318
 msgid "Write Image"
