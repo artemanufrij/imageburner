@@ -1,15 +1,15 @@
 # Turkish translations for com.github.artemanufrij.imageburner package.
 # Copyright (C) 2019 THE com.github.artemanufrij.imageburner'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.artemanufrij.imageburner package.
-# Automatically generated, 2019.
+# İbrahim Kapramcı, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"POT-Creation-Date: 2019-03-31 14:16+0200\n"
 "PO-Revision-Date: 2019-03-31 14:02+0200\n"
-"Last-Translator: Automatically generated\n"
+"Last-Translator: İbrahim Kapramcı <ibrakap@gmail.com>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -19,32 +19,32 @@ msgstr ""
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr ""
+msgstr "Değiştir"
 
 #: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr ""
+msgstr "Aç"
 
 #: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr ""
+msgstr "Cihaz"
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr ""
+msgstr "Checksum hesaplanıyor…"
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr ""
+msgstr "lütfen bekleyin…"
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr ""
+msgstr "Hazır!"
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr ""
+msgstr "%s %s üzerine yazıldı"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
@@ -52,56 +52,56 @@ msgstr ""
 
 #: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr ""
+msgstr "Bir algoritma seçin"
 
 #: src/MainWindow.vala:210
 msgid "Finished"
-msgstr ""
+msgstr "Bitti"
 
 #: src/MainWindow.vala:227
 msgid "Image"
-msgstr ""
+msgstr "İmaj"
 
 #: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr ""
+msgstr "İmaj Dosyası Seçin"
 
 #: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr ""
+msgstr "Bir cihaz seçin"
 
 #: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr ""
+msgstr "Çıkarılabilir cihaz bulunamadı…"
 
 #: src/MainWindow.vala:307
 msgid "Flash"
-msgstr ""
+msgstr "Yaz"
 
 #: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr ""
+msgstr "İmajı yaz"
 
 #: src/MainWindow.vala:336
 msgid "_Cancel"
-msgstr ""
+msgstr "_İptal"
 
 #: src/MainWindow.vala:337
 msgid "_Open"
-msgstr ""
+msgstr "_Aç"
 
 #: src/MainWindow.vala:340
 msgid "Image files"
-msgstr ""
+msgstr "İmaj dosyaları"
 
 #: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr ""
+msgstr "Bir imaj dosyası seçin…"
 
 #: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr ""
+msgstr "İmaj dosyası seçilmedi…"
 
 #: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr ""
+msgstr "Bir cihaz seçilmedi…"

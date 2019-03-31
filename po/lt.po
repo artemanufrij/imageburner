@@ -1,15 +1,15 @@
 # Lithuanian translations for com.github.artemanufrij.imageburner package.
 # Copyright (C) 2019 THE com.github.artemanufrij.imageburner'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.artemanufrij.imageburner package.
-# Automatically generated, 2019.
+# Moo, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"POT-Creation-Date: 2019-03-31 14:16+0200\n"
 "PO-Revision-Date: 2019-03-31 14:02+0200\n"
-"Last-Translator: Automatically generated\n"
+"Last-Translator: Moo\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -20,89 +20,89 @@ msgstr ""
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr ""
+msgstr "Pakeisti"
 
 #: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr ""
+msgstr "Atverti"
 
 #: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr ""
+msgstr "Įrenginys"
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr ""
+msgstr "Apskaičiuojama kontrolinė suma…"
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr ""
+msgstr "palaukite…"
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr ""
+msgstr "Pasiruošę!"
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr ""
+msgstr "%s buvo įrašytas į %s"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
-msgstr ""
+msgstr "Atvaizdžių įrašymo programa"
 
 #: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr ""
+msgstr "Pasirinkite algoritmą"
 
 #: src/MainWindow.vala:210
 msgid "Finished"
-msgstr ""
+msgstr "Užbaigta"
 
 #: src/MainWindow.vala:227
 msgid "Image"
-msgstr ""
+msgstr "Atvaizdis"
 
 #: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr ""
+msgstr "Pasirinkti atvaizdį"
 
 #: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr ""
+msgstr "Pasirinkti diską"
 
 #: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr ""
+msgstr "Nerasta jokių keičiamųjų įrenginių…"
 
 #: src/MainWindow.vala:307
 msgid "Flash"
-msgstr ""
+msgstr "Įrašymas"
 
 #: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr ""
+msgstr "Įrašyti atvaizdį"
 
 #: src/MainWindow.vala:336
 msgid "_Cancel"
-msgstr ""
+msgstr "_Atsisakyti"
 
 #: src/MainWindow.vala:337
 msgid "_Open"
-msgstr ""
+msgstr "A_tverti"
 
 #: src/MainWindow.vala:340
 msgid "Image files"
-msgstr ""
+msgstr "Atvaizdžio failai"
 
 #: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr ""
+msgstr "Pasirinkite atvaizdžio failą…"
 
 #: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr ""
+msgstr "Nepasirinktas joks atvaizdžio failas…"
 
 #: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr ""
+msgstr "Nepasirinktas joks įrenginys…"

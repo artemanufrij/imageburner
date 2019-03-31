@@ -1,16 +1,16 @@
 # Portuguese translations for com.github.artemanufrij.imageburner package.
 # Copyright (C) 2019 THE com.github.artemanufrij.imageburner'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.artemanufrij.imageburner package.
-# Automatically generated, 2019.
+# Leandro Vital, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"POT-Creation-Date: 2019-03-31 14:16+0200\n"
 "PO-Revision-Date: 2019-03-31 14:02+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Leandro Vital <leavitals@gmail.com>\n"
+"Language-Team: Portugese\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,89 +19,89 @@ msgstr ""
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr ""
+msgstr "Alterar"
 
 #: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr ""
+msgstr "Calculando o checksum…"
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr ""
+msgstr "por favor, espere…"
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr ""
+msgstr "Pronto!"
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr ""
+msgstr "%s foi escrito em %s"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
-msgstr ""
+msgstr "Gravador de imagem"
 
 #: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr ""
+msgstr "Escolha um algoritmo"
 
 #: src/MainWindow.vala:210
 msgid "Finished"
-msgstr ""
+msgstr "Finalizado"
 
 #: src/MainWindow.vala:227
 msgid "Image"
-msgstr ""
+msgstr "Imagem"
 
 #: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr ""
+msgstr "Selecione uma imagem"
 
 #: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr ""
+msgstr "Selecione uma unidade"
 
 #: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr ""
+msgstr "Nenhum dispositivo removível foi encontrado…"
 
 #: src/MainWindow.vala:307
 msgid "Flash"
-msgstr ""
+msgstr "Instalar imagem"
 
 #: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr ""
+msgstr "Escrever imagem"
 
 #: src/MainWindow.vala:336
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #: src/MainWindow.vala:337
 msgid "_Open"
-msgstr ""
+msgstr "_Abrir"
 
 #: src/MainWindow.vala:340
 msgid "Image files"
-msgstr ""
+msgstr "Arquivos de imagem"
 
 #: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr ""
+msgstr "Escolha um arquivo de imagem…"
 
 #: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr ""
+msgstr "Nenhuma imagem foi selecionada…"
 
 #: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr ""
+msgstr "Nenhum dispositivo selecionado…"
