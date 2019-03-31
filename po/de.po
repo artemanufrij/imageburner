@@ -1,35 +1,33 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Artem Anufrij <artem.anufrij@live.de>, 2017.
+# German translations for com.github.artemanufrij.imageburner package.
+# Copyright (C) 2019 THE com.github.artemanufrij.imageburner'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.artemanufrij.imageburner package.
+# Automatically generated, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 19:18+0200\n"
-"PO-Revision-Date: 2017-08-05 08:40+0200\n"
-"Last-Translator: Artem Anufrij <artem.anufrij@live.de>\n"
-"Language-Team: Deutsch <artem.anufrij@live.de>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"PO-Revision-Date: 2019-03-31 14:02+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr "Ändern"
+msgstr ""
 
-#: src/MainWindow.vala:70 src/MainWindow.vala:335
+#: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr "Öffnen"
+msgstr ""
 
-#: src/MainWindow.vala:97 src/MainWindow.vala:256
+#: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr "Datenträger"
+msgstr ""
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
@@ -39,72 +37,71 @@ msgstr ""
 msgid "please wait…"
 msgstr ""
 
-#: src/MainWindow.vala:156 src/MainWindow.vala:422
+#: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr "Bereit!"
+msgstr ""
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr "%s wurde auf %s geschrieben"
+msgstr ""
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
-msgstr "Image Burner"
+msgstr ""
 
-#: src/MainWindow.vala:194
-#, fuzzy
+#: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr "Abbilddatei auswählen…"
+msgstr ""
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:210
 msgid "Finished"
-msgstr "Abgeschlossen"
+msgstr ""
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:227
 msgid "Image"
-msgstr "Abbild"
+msgstr ""
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr "Abbild auswählen"
+msgstr ""
 
-#: src/MainWindow.vala:270
+#: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr "Datenträger auswählen"
+msgstr ""
 
-#: src/MainWindow.vala:279 src/MainWindow.vala:412
+#: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr "Keine Wechseldatenträger gefunden…"
+msgstr ""
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:307
 msgid "Flash"
-msgstr "Erstellen"
+msgstr ""
 
-#: src/MainWindow.vala:318
+#: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr "Vorgang starten"
+msgstr ""
+
+#: src/MainWindow.vala:336
+msgid "_Cancel"
+msgstr ""
 
 #: src/MainWindow.vala:337
-msgid "_Cancel"
-msgstr "_Abbrechen"
-
-#: src/MainWindow.vala:338
 msgid "_Open"
-msgstr "_Öffnen"
+msgstr ""
 
-#: src/MainWindow.vala:341
+#: src/MainWindow.vala:340
 msgid "Image files"
-msgstr "Abbilddateien"
+msgstr ""
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr "Abbilddatei auswählen…"
+msgstr ""
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr "Kein Abbild ausgewählt…"
+msgstr ""
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr "Kein Datenträger ausgewählt…"
+msgstr ""

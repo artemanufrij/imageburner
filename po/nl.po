@@ -1,103 +1,107 @@
+# Dutch translations for com.github.artemanufrij.imageburner package.
+# Copyright (C) 2019 THE com.github.artemanufrij.imageburner'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.artemanufrij.imageburner package.
+# Automatically generated, 2019.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 19:18+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"PO-Revision-Date: 2019-03-31 14:02+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr "Wijzigen"
+msgstr ""
 
-#: src/MainWindow.vala:70 src/MainWindow.vala:335
+#: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr "Openen"
+msgstr ""
 
-#: src/MainWindow.vala:97 src/MainWindow.vala:256
+#: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr "Apparaat"
+msgstr ""
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr "Bezig met berekenen van controlesom…"
+msgstr ""
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr "even geduld…"
+msgstr ""
 
-#: src/MainWindow.vala:156 src/MainWindow.vala:422
+#: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr "Klaar!"
+msgstr ""
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr "%s is weggeschreven naar %s"
+msgstr ""
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
-msgstr "Schijfafbeeldingen branden"
+msgstr ""
 
-#: src/MainWindow.vala:194
+#: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr "Kies een algoritme"
+msgstr ""
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:210
 msgid "Finished"
-msgstr "Afgerond"
+msgstr ""
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:227
 msgid "Image"
-msgstr "Schijfafbeelding"
+msgstr ""
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr "Schijfafbeelding kiezen"
+msgstr ""
 
-#: src/MainWindow.vala:270
+#: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr "Schijf kiezen"
+msgstr ""
 
-#: src/MainWindow.vala:279 src/MainWindow.vala:412
+#: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr "Geen verwijderbare apparaten aangetroffen…"
+msgstr ""
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:307
 msgid "Flash"
-msgstr "Versturen"
+msgstr ""
 
-#: src/MainWindow.vala:318
+#: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr "Schijfafbeelding wegschrijven"
+msgstr ""
+
+#: src/MainWindow.vala:336
+msgid "_Cancel"
+msgstr ""
 
 #: src/MainWindow.vala:337
-msgid "_Cancel"
-msgstr "_Annuleren"
-
-#: src/MainWindow.vala:338
 msgid "_Open"
-msgstr "_Openen"
+msgstr ""
 
-#: src/MainWindow.vala:341
+#: src/MainWindow.vala:340
 msgid "Image files"
-msgstr "Schijfafbeeldingsbestanden"
+msgstr ""
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr "Kies een schijfafbeeldingsbestand…"
+msgstr ""
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr "Geen schijfafbeeldingsbestand gekozen…"
+msgstr ""
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr "Geen apparaat gekozen…"
+msgstr ""
