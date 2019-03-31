@@ -44,7 +44,7 @@ msgstr "Prêt !"
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr "%s a été écrit sur %s"
+msgstr "%s a été flashé sur %s"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
