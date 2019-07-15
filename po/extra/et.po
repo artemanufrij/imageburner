@@ -1,0 +1,167 @@
+# Estonian translations for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"PO-Revision-Date: 2019-03-31 14:02+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/com.github.artemanufrij.imageburner.desktop.in:4
+#: data/com.github.artemanufrij.imageburner.desktop.in:13
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:7
+msgid "Image Burner"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.desktop.in:8
+msgid "Burn images to devices"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.desktop.in:17
+msgid "com.github.artemanufrij.imageburner"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.desktop.in:22
+msgid "image;burn;flash;usb;etcher;"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:8
+msgid "Inspired by Etcher's UI"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:10
+msgid ""
+"Burn images (as example: .iso or .img) to removable devices like usb disk or "
+"sd card"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:20
+msgid "Artem Anufrij"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:33
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:93
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:106
+msgid "Fix:"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:35
+msgid "Missing contractor (thanks to Torikul Habib)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:37
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:46
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:58
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:80
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:97
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:110
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:118
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:143
+msgid "Translation:"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:39
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:121
+msgid "Russian (by Camellan)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:40
+msgid "Japanese (by Ciarán Ainsworth and Ryo Nakano)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:48
+msgid "Portuguese Brazilian (by leavitals)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:54
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:127
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:135
+msgid "New:"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:56
+msgid "Switch to meson (Thanks to Daniel Lewan)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:60
+msgid "Lithuanian (by welaq)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:61
+msgid "Dutch (by Heimen Stoffels)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:66
+msgid "Prepare for JUNO"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:72
+msgid "Fixed:"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:74
+msgid "Wording while writing an iso."
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:82
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:112
+msgid "Polish (by DanyGee)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:88
+msgid "Improved:"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:90
+msgid "Simplified UI"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:91
+msgid "Simplified dd command"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:95
+msgid "UI freeze while burning"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:99
+msgid "Catalan (by Adolfo Jayme-Barrientos)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:100
+msgid "Spanish (by Adolfo Jayme-Barrientos)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:108
+msgid "MD5 and SHA1 hash calculating"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:120
+msgid "Korean (by Kim In Seop)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:129
+msgid "Show spinner while checksum hash is being calculated"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:137
+msgid "Show checksum after choosing an iso or img file"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:145
+msgid "Spanish (by Marco Carrizales, Juankz)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:146
+msgid "French (by nvivant)"
+msgstr ""

@@ -7,24 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.artemanufrij.imageburner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 19:18+0200\n"
-"PO-Revision-Date: 2019-01-19 22:45+0100\n"
+"POT-Creation-Date: 2019-03-31 14:16+0200\n"
+"PO-Revision-Date: 2019-03-31 14:02+0200\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
 msgstr "Modifier"
 
-#: src/MainWindow.vala:70 src/MainWindow.vala:335
+#: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:97 src/MainWindow.vala:256
+#: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
 msgstr "Périphérique"
 
@@ -36,72 +37,71 @@ msgstr "Calcul de la somme de contrôle…"
 msgid "please wait…"
 msgstr "Veuillez patienter…"
 
-#: src/MainWindow.vala:156 src/MainWindow.vala:422
+#: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
 msgstr "Prêt !"
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr "%s a été écrit sur %s"
+msgstr "%s a été flashé sur %s"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
 msgstr "Image Burner"
 
-#: src/MainWindow.vala:194
-#, fuzzy
+#: src/MainWindow.vala:193
 msgid "Choose an algorithm"
 msgstr "Choisir un algorithme"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:210
 msgid "Finished"
 msgstr "Terminé"
 
-#: src/MainWindow.vala:228
+#: src/MainWindow.vala:227
 msgid "Image"
 msgstr "Image"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:235
 msgid "Select Image"
 msgstr "Sélectionner une image"
 
-#: src/MainWindow.vala:270
+#: src/MainWindow.vala:269
 msgid "Select Drive"
 msgstr "Sélectionner un disque"
 
-#: src/MainWindow.vala:279 src/MainWindow.vala:412
+#: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
 msgstr "Aucun périphérique trouvé…"
 
-#: src/MainWindow.vala:308
+#: src/MainWindow.vala:307
 msgid "Flash"
 msgstr "Flasher"
 
-#: src/MainWindow.vala:318
+#: src/MainWindow.vala:317
 msgid "Write Image"
 msgstr "Flasher l'image"
 
-#: src/MainWindow.vala:337
+#: src/MainWindow.vala:336
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/MainWindow.vala:338
+#: src/MainWindow.vala:337
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:341
+#: src/MainWindow.vala:340
 msgid "Image files"
 msgstr "Fichiers image"
 
-#: src/MainWindow.vala:404
+#: src/MainWindow.vala:403
 msgid "Choose an image file…"
 msgstr "Choisir un fichier image…"
 
-#: src/MainWindow.vala:418
+#: src/MainWindow.vala:417
 msgid "No image file chosen…"
 msgstr "Aucun fichier image sélectionné…"
 
-#: src/MainWindow.vala:420
+#: src/MainWindow.vala:419
 msgid "No device chosen…"
 msgstr "Aucun périphérique sélectionné…"
