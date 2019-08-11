@@ -18,89 +18,89 @@ msgstr ""
 
 #: src/MainWindow.vala:67 src/MainWindow.vala:89
 msgid "Change"
-msgstr ""
+msgstr "மாற்று"
 
 #: src/MainWindow.vala:70 src/MainWindow.vala:334
 msgid "Open"
-msgstr ""
+msgstr "திறக்க"
 
 #: src/MainWindow.vala:97 src/MainWindow.vala:255
 msgid "Device"
-msgstr ""
+msgstr "சாதனம்"
 
 #: src/MainWindow.vala:124
 msgid "Calculating checksum…"
-msgstr ""
+msgstr "செக்சம் கணக்கிடுகிறது..."
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr ""
+msgstr "தயவுசெய்து காத்திருங்கள்..."
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
-msgstr ""
+msgstr "தயார்!"
 
 #: src/MainWindow.vala:158
 #, c-format
 msgid "%s was written onto %s"
-msgstr ""
+msgstr "%s மீது எழுதப்பட்டது %s"
 
 #: src/MainWindow.vala:185
 msgid "Image Burner"
-msgstr ""
+msgstr "இமேஜ் பர்னர்"
 
 #: src/MainWindow.vala:193
 msgid "Choose an algorithm"
-msgstr ""
+msgstr "வழிமுறையைத் தேர்வுசெய்க"
 
 #: src/MainWindow.vala:210
 msgid "Finished"
-msgstr ""
+msgstr "முடிந்தது"
 
 #: src/MainWindow.vala:227
 msgid "Image"
-msgstr ""
+msgstr "இமேஜ்"
 
 #: src/MainWindow.vala:235
 msgid "Select Image"
-msgstr ""
+msgstr "இமேஜ் தேர்ந்தெடுக்கவும்"
 
 #: src/MainWindow.vala:269
 msgid "Select Drive"
-msgstr ""
+msgstr "இயக்ககத்தைத் தேர்ந்தெடுக்கவும்"
 
 #: src/MainWindow.vala:278 src/MainWindow.vala:411
 msgid "No removable devices found…"
-msgstr ""
+msgstr "அகற்றக்கூடிய சாதனங்கள் எதுவும் கிடைக்கவில்லை…"
 
 #: src/MainWindow.vala:307
 msgid "Flash"
-msgstr ""
+msgstr "ஏற்று"
 
 #: src/MainWindow.vala:317
 msgid "Write Image"
-msgstr ""
+msgstr "படத்தை ஏற்று"
 
 #: src/MainWindow.vala:336
 msgid "_Cancel"
-msgstr ""
+msgstr "_ரத்துசெய்"
 
 #: src/MainWindow.vala:337
 msgid "_Open"
-msgstr ""
+msgstr "_திறக்க"
 
 #: src/MainWindow.vala:340
 msgid "Image files"
-msgstr ""
+msgstr "இமேஜ் கோப்புகள்"
 
 #: src/MainWindow.vala:403
 msgid "Choose an image file…"
-msgstr ""
+msgstr "படக் கோப்பைத் தேர்வுசெய்க"
 
 #: src/MainWindow.vala:417
 msgid "No image file chosen…"
-msgstr ""
+msgstr "படக் கோப்பு எதுவும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: src/MainWindow.vala:419
 msgid "No device chosen…"
-msgstr ""
+msgstr "எந்த சாதனமும் தேர்ந்தெடுக்கப்படவில்லை"
