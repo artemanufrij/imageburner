@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 14:02+0200\n"
+"POT-Creation-Date: 2019-08-12 17:52+0200\n"
 "PO-Revision-Date: 2019-03-31 14:02+0200\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -18,20 +18,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/com.github.artemanufrij.imageburner.desktop.in:4
-#: data/com.github.artemanufrij.imageburner.desktop.in:13
+#: data/com.github.artemanufrij.imageburner.desktop.in:15
 #: data/com.github.artemanufrij.imageburner.appdata.xml.in:7
 msgid "Image Burner"
 msgstr "Image Burner"
 
-#: data/com.github.artemanufrij.imageburner.desktop.in:8
+#: data/com.github.artemanufrij.imageburner.desktop.in:9
 msgid "Burn images to devices"
 msgstr "Flashez des images sur des périphériques"
 
-#: data/com.github.artemanufrij.imageburner.desktop.in:17
+#: data/com.github.artemanufrij.imageburner.desktop.in:20
 msgid "com.github.artemanufrij.imageburner"
 msgstr "com.github.artemanufrij.imageburner"
 
-#: data/com.github.artemanufrij.imageburner.desktop.in:22
+#: data/com.github.artemanufrij.imageburner.desktop.in:25
 msgid "image;burn;flash;usb;etcher;"
 msgstr "image;flasher;usb;etcher;"
 
@@ -44,15 +44,16 @@ msgid ""
 "Burn images (as example: .iso or .img) to removable devices like usb disk or "
 "sd card"
 msgstr ""
-"Flashez des images (par exemple : .iso ou .img) sur des périphériques amovibles tels qu'une clé USB ou une carte SD"
+"Flashez des images (par exemple : .iso ou .img) sur des périphériques "
+"amovibles tels qu'une clé USB ou une carte SD"
 
 #: data/com.github.artemanufrij.imageburner.appdata.xml.in:20
 msgid "Artem Anufrij"
 msgstr "Artem Anufrij"
 
 #: data/com.github.artemanufrij.imageburner.appdata.xml.in:33
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:93
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:106
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:95
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:108
 msgid "Fix:"
 msgstr "Correction :"
 
@@ -61,18 +62,18 @@ msgid "Missing contractor (thanks to Torikul Habib)"
 msgstr "Contrat manquant (grâce à Torikul Habib)"
 
 #: data/com.github.artemanufrij.imageburner.appdata.xml.in:37
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:46
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:58
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:80
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:97
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:110
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:118
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:143
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:48
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:60
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:82
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:99
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:112
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:120
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:145
 msgid "Translation:"
 msgstr "Traduction :"
 
 #: data/com.github.artemanufrij.imageburner.appdata.xml.in:39
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:121
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:123
 msgid "Russian (by Camellan)"
 msgstr "Russe (par Camellan)"
 
@@ -80,89 +81,100 @@ msgstr "Russe (par Camellan)"
 msgid "Japanese (by Ciarán Ainsworth and Ryo Nakano)"
 msgstr "Japonais (par Ciarán Ainsworth et Ryo Nakano)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:48
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:41
+msgid "Turkish (by ibrakap)"
+msgstr ""
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:42
+#, fuzzy
+msgid "French (by Nathan Bonnemains)"
+msgstr "Français (par nvivant)"
+
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:50
 msgid "Portuguese Brazilian (by leavitals)"
 msgstr "Portugais brésilien (par leavitals)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:54
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:127
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:135
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:56
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:129
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:137
 msgid "New:"
 msgstr "Nouveau :"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:56
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:58
 msgid "Switch to meson (Thanks to Daniel Lewan)"
 msgstr "Passage à meson (grâce à Daniel Lewan)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:60
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:62
 msgid "Lithuanian (by welaq)"
 msgstr "Lituanien (par welaq)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:61
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:63
 msgid "Dutch (by Heimen Stoffels)"
 msgstr "Néerlandais (par Heimen Stoffels)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:66
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:68
 msgid "Prepare for JUNO"
 msgstr "Préparation pour Juno"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:72
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:74
 msgid "Fixed:"
 msgstr "Correction :"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:74
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:76
 msgid "Wording while writing an iso."
 msgstr "Libellé lors de l'écriture d'un iso."
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:82
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:112
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:84
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:114
 msgid "Polish (by DanyGee)"
 msgstr "Polonais (par DanyGee)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:88
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:90
 msgid "Improved:"
 msgstr "Amélioration :"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:90
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:92
 msgid "Simplified UI"
 msgstr "Interface simplifiée"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:91
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:93
 msgid "Simplified dd command"
 msgstr "Commande dd simplifiée"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:95
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:97
 msgid "UI freeze while burning"
 msgstr "Interface verrouillée pendant l'écriture des fichiers"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:99
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:101
 msgid "Catalan (by Adolfo Jayme-Barrientos)"
 msgstr "Catalan (par Adolfo Jayme-Barrientos)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:100
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:102
 msgid "Spanish (by Adolfo Jayme-Barrientos)"
 msgstr "Espagnol (par Adolfo Jayme-Barrientos)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:108
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:110
 msgid "MD5 and SHA1 hash calculating"
 msgstr "Calcul des hachages MD5 et SHA1"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:120
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:122
 msgid "Korean (by Kim In Seop)"
 msgstr "Coréen (par Kim In Seop)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:129
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:131
 msgid "Show spinner while checksum hash is being calculated"
-msgstr "Affichage d'une icône de chargement pendant le calcul de la somme de contrôle"
+msgstr ""
+"Affichage d'une icône de chargement pendant le calcul de la somme de contrôle"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:137
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:139
 msgid "Show checksum after choosing an iso or img file"
-msgstr "Affichage de la somme de contrôle après avoir choisi un fichier iso ou img"
+msgstr ""
+"Affichage de la somme de contrôle après avoir choisi un fichier iso ou img"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:145
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:147
 msgid "Spanish (by Marco Carrizales, Juankz)"
 msgstr "Espagnol (par Marco Carrizales, Juankz)"
 
-#: data/com.github.artemanufrij.imageburner.appdata.xml.in:146
+#: data/com.github.artemanufrij.imageburner.appdata.xml.in:148
 msgid "French (by nvivant)"
 msgstr "Français (par nvivant)"
