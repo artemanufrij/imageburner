@@ -1,6 +1,6 @@
 [Contractor Entry]
 Name=Write onto removable device
-Name[pl]=Zapis na urządzeniu przenośnym
+Name[pl]=Zapisz na urządzeniu przenośnym
 Icon=com.github.artemanufrij.imageburner
 Description=Burn images (.iso, .img) to removable devices like usb disk or sd card
 Description[pl]=Nagrywanie obrazów (.iso, .img) na urządzenia przenośne, takie jak dysk USB czy karta SD
