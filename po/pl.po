@@ -36,7 +36,7 @@ msgstr "Obliczam sumę kontrolną…"
 
 #: src/MainWindow.vala:144
 msgid "please wait…"
-msgstr ""
+msgstr "proszę czekać…"
 
 #: src/MainWindow.vala:156 src/MainWindow.vala:421
 msgid "Ready!"
